@@ -16,6 +16,7 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.processos.Processo;
 import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -29,14 +30,22 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class App {
+    private static String logUserName = "";
+    private static String getLogFileName() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateStr = sdf.format(new Date());
+        return dateStr + "-" + logUserName + "-.txt";
+    }
+
     public static void log(String message) {
         try {
+            String logFileName = getLogFileName();
+            FileWriter fw = new FileWriter(logFileName, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String timestamp = sdf.format(new Date());
             String logMessage = timestamp + " - " + message;
-
-            FileWriter fw = new FileWriter("C:\\Users\\brian\\yotte-monitoramento-grupo\\monitoramento.log", true); // Nome do arquivo de log
-            BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(logMessage);
             bw.newLine();
@@ -48,12 +57,13 @@ public class App {
 
     public static void logError(String errorMessage, Exception exception) {
         try {
+            String logFileName = getLogFileName();
+            FileWriter fw = new FileWriter(logFileName, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String timestamp = sdf.format(new Date());
             String logMessage = timestamp + " - " + errorMessage + ": " + exception.getMessage();
-
-            FileWriter fw = new FileWriter("C:\\Users\\brian\\yotte-monitoramento-grupo\\error_log.txt", true); // Nome do arquivo de log de erros
-            BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(logMessage);
             bw.newLine();
@@ -62,6 +72,8 @@ public class App {
             e.printStackTrace();
         }
     }
+
+
     public static void main(String[] args) {
         // Crie um agendador de tarefas
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -168,6 +180,7 @@ public class App {
                                     novoUsuario.setCargo(cargo);
                                     novoUsuario.setFkEmpresa(fkEmpresa);
                                     novoUsuario.setFkTipoUsuario(3);
+                                    logUserName = nome;
 
                                     MaquinaDao maquinaDao = new MaquinaDao();
                                     ModelMaquina novaMaquina = new ModelMaquina();
@@ -183,6 +196,7 @@ public class App {
                                     log("Cadastro bem-sucedido para o usuário " + nome);
                                     log("Área de atuação " + area);
                                     log("Sistema Operacional" + so);
+                                    System.out.println("Cadastrado com sucesso!");
                                 }
                             } else {
                                 System.out.println("Seu token não é válido!");
