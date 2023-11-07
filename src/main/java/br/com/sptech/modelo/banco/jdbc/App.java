@@ -29,7 +29,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class App {
-    private static void log(String message) {
+    public static void log(String message) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String timestamp = sdf.format(new Date());
@@ -46,7 +46,7 @@ public class App {
         }
     }
 
-    private static void logError(String errorMessage, Exception exception) {
+    public static void logError(String errorMessage, Exception exception) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String timestamp = sdf.format(new Date());
