@@ -16,6 +16,7 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.processos.Processo;
 import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -29,13 +30,17 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class App {
+    private static final String LOG_FILE_NAME = "monitoramento_log.txt";
+    private static final String LOG_ERROR_NAME = "error_log.txt";
+
     private static void log(String message) {
         try {
+            File arquivo = new File(LOG_FILE_NAME);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String timestamp = sdf.format(new Date());
             String logMessage = timestamp + " - " + message;
 
-            FileWriter fw = new FileWriter("C:\\Users\\brian\\yotte-monitoramento-grupo\\monitoramento.log", true); // Nome do arquivo de log
+            FileWriter fw = new FileWriter(arquivo, true);
             BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(logMessage);
@@ -48,11 +53,12 @@ public class App {
 
     private static void logError(String errorMessage, Exception exception) {
         try {
+            File arquivo = new File(LOG_ERROR_NAME);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String timestamp = sdf.format(new Date());
             String logMessage = timestamp + " - " + errorMessage + ": " + exception.getMessage();
 
-            FileWriter fw = new FileWriter("C:\\Users\\brian\\yotte-monitoramento-grupo\\error_log.txt", true); // Nome do arquivo de log de erros
+            FileWriter fw = new FileWriter(arquivo, true);
             BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(logMessage);

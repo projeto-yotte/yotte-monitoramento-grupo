@@ -17,7 +17,9 @@ public class Maquina {
 
 
     public Maquina() {
-        this.memoriaDao = new MemoriaDao();
+        Conexao conexao = new Conexao();
+        JdbcTemplate con = conexao.getConexaoDoBanco();
+        this.memoriaDao = new MemoriaDao(null);
         this.cpuDao = new CpuDao();
         this.discoDao = new DiscoDao();
         this.janelaDao = new JanelaDao();
@@ -25,7 +27,7 @@ public class Maquina {
     }
 
     public void buscarDadosFixosDosComponentes() {
-        memoriaDao.buscarDadosFixo(idMaquina);
+        memoriaDao.buscarDadosFixo(idMaquina, "memoria");
         cpuDao.buscarDadosFixo(idMaquina);
         discoDao.buscarDadosFixo(idMaquina);
     }

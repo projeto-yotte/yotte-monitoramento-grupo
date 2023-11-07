@@ -2,10 +2,7 @@ package br.com.sptech.modelo.banco.jdbc.dao;
 
 import br.com.sptech.modelo.banco.jdbc.conexao.Conexao;
 import br.com.sptech.modelo.banco.jdbc.modelo.ModelUsuario;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-
-import java.util.List;
 
 public class UsuarioDao {
     private Integer idUsuario;
@@ -76,4 +73,19 @@ public class UsuarioDao {
         return idUsuario;
     }
 
+    public static class componentes {
+        private Integer idInfo;
+
+        public void buscarDadosFixo(Integer idMaquina) {
+            Conexao conexao = new Conexao();
+            JdbcTemplate con = conexao.getConexaoDoBanco();
+
+            String sql = "SELECT m.id_maquina\n" +
+                    "FROM componente c\n" +
+                    "JOIN info_componente i ON c.fk_info = i.id_info\n" +
+                    "JOIN maquina m ON c.fk_maquina = m.id_maquina\n" +
+                    "WHERE c.nome = ? AND m.id_maquina = ?";
+            idInfo = con.queryForObject(sql, Integer.class, idMaquina);
+        }
+    }
 }
