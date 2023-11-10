@@ -8,7 +8,7 @@ public class ModelMemoria {
     private Long memoriaUso;
     private Date dataCaptura;
     private Integer fkMaquina;
-
+    private Boolean desligada;
     public ModelMemoria(Integer idCapRam, Long ramTotal, Long memoriaUso, Date dataCaptura, Integer fkMaquina) {
         this.idCapRam = idCapRam;
         this.ramTotal = ramTotal;
@@ -25,12 +25,13 @@ public class ModelMemoria {
         this.fkMaquina = fkMaquina;
     }
 
-    public ModelMemoria(Integer idCapRam, Long ramTotal, Long memoriaUso) {
+    public ModelMemoria(Integer idCapRam, Long ramTotal, Long memoriaUso, Boolean desligada) {
         this.idCapRam = idCapRam;
         this.ramTotal = ramTotal;
         this.memoriaUso = memoriaUso;
         this.dataCaptura = null;
         this.fkMaquina = null;
+        this.desligada = desligada;
     }
 
     public ModelMemoria() {
@@ -74,6 +75,14 @@ public class ModelMemoria {
 
     public void setFkMaquina(Integer fkMaquina) {
         this.fkMaquina = fkMaquina;
+    }
+
+    public Boolean getDesligada() {
+        return desligada;
+    }
+
+    public void setDesligada(Boolean desligada) {
+        this.desligada = desligada;
     }
 
     @Override

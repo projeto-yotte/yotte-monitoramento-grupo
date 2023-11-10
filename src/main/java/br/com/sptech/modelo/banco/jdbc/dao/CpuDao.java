@@ -33,11 +33,12 @@ public class CpuDao {
             JdbcTemplate con = conexao.getConexaoDoBanco();
 
             // Inserir dados na tabela dados_captura
-            con.update("INSERT INTO dados_captura (uso, frequencia, data_captura, fk_componente) VALUES (?, ?, ?, ?)",
+            con.update("INSERT INTO dados_captura (uso, frequencia, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?, ?)",
                     novaCapturaCpu.getUsoCpu(),
                     novaCapturaCpu.getFreq(),
                     novaCapturaCpu.getDataCaptura(),
-                    idInfo
+                    idInfo,
+                    novaCapturaCpu.getDesligada()
             );
         } else {
             throw new RuntimeException("ID não foi capturado. Execute salvarCapturaFixa() primeiro.");

@@ -28,10 +28,11 @@ public class MemoriaDao {
             Conexao conexao = new Conexao();
             JdbcTemplate con = conexao.getConexaoDoBanco();
 
-            con.update("INSERT INTO dados_captura (uso, data_captura, fk_componente) VALUES (?, ?, ?)",
+            con.update("INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)",
                     novaCapturaRam.getMemoriaUso(),
                     novaCapturaRam.getDataCaptura(),
-                    idInfo
+                    idInfo,
+                    novaCapturaRam.getDesligada()
             );
         } else {
             throw new RuntimeException("ID não foi capturado. Execute salvarCapturaFixa() primeiro.");

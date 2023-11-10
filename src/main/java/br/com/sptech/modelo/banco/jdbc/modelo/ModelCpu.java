@@ -8,13 +8,15 @@ public class ModelCpu {
     private Integer numCPUsLogicas;
     private Double usoCpu;
     private Date dataCaptura;
+    private Boolean desligada;
 
-    public ModelCpu(Long freq, Integer numCPUsFisicas, Integer numCPUsLogicas, Double usoCpu, Date dataCaptura) {
+    public ModelCpu(Long freq, Integer numCPUsFisicas, Integer numCPUsLogicas, Double usoCpu, Date dataCaptura, Boolean desligada) {
         this.freq = freq;
         this.numCPUsFisicas = numCPUsFisicas;
         this.numCPUsLogicas = numCPUsLogicas;
         this.usoCpu = usoCpu;
         this.dataCaptura = dataCaptura;
+        this.desligada = desligada;
     }
 
     public ModelCpu() {
@@ -58,6 +60,14 @@ public class ModelCpu {
 
     public void setDataCaptura(Date dataCaptura) {
         this.dataCaptura = dataCaptura;
+    }
+
+    public Boolean getDesligada() {
+        return desligada;
+    }
+
+    public void setDesligada(Boolean desligada) {
+        this.desligada = desligada;
     }
 
     @Override

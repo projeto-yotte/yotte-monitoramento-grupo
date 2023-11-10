@@ -12,6 +12,7 @@ public class ModelJanela {
     private Integer fkMaquina;
     private Date dataCaptura;
 
+
     public ModelJanela(Integer idJanela, Long pid, String titulo, String comando, String localizacao,
                        Boolean visivel, Integer fkMaquina) {
         this.idJanela = idJanela;

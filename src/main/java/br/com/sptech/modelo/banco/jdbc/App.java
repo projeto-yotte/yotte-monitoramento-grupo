@@ -302,10 +302,12 @@ public class App {
                     // Crie uma nova instância da sua classe com os dados capturados
                     novaCapturaRam.setMemoriaUso(memoria.getEmUso());
                     novaCapturaRam.setDataCaptura(new Date());
+                    novaCapturaRam.setDesligada(false);
 
                     novaCapturaCpu.setUsoCpu(cpu.getUso());
                     novaCapturaCpu.setFreq(cpu.getFrequencia());
                     novaCapturaCpu.setDataCaptura(new Date());
+                    novaCapturaCpu.setDesligada(false);
 
                     for (Disco disco : discos) {
                         novaCapturaDisco.setBytesEscrita(disco.getBytesDeEscritas());
@@ -314,6 +316,7 @@ public class App {
                         novaCapturaDisco.setEscritas(disco.getEscritas());
                         novaCapturaDisco.setLeituras(disco.getLeituras());
                         novaCapturaDisco.setTamanhoFila(disco.getTamanhoAtualDaFila());
+                        novaCapturaDisco.setDesligada(false);
                     }
 
                     for (Janela janela : janelas) {

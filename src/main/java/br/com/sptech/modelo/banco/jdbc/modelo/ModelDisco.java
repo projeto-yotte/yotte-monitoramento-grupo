@@ -14,9 +14,10 @@ public class ModelDisco {
     private Integer idInfoDisco;
     private Long totalDisco;
     private Date dataCaptura;
+    private Boolean desligada;
 
     public ModelDisco(Integer idCapDisco, Long tamanhoFila, Long leituras, Long bytesLeitura, Long escritas, Long bytesEscrita, Integer fkMaquina,
-                      Integer fkInfoDisco, Integer idInfoDisco, Long totalDisco, Date dataCaptura) {
+                      Integer fkInfoDisco, Integer idInfoDisco, Long totalDisco, Date dataCaptura, Boolean desligada) {
         this.idCapDisco = idCapDisco;
         this.tamanhoFila = tamanhoFila;
         this.leituras = leituras;
@@ -28,6 +29,7 @@ public class ModelDisco {
         this.fkInfoDisco = fkInfoDisco;
         this.idInfoDisco = idInfoDisco;
         this.totalDisco = totalDisco;
+        this.desligada = desligada;
     }
 
     public ModelDisco(Long tamanhoFila, Long leituras, Long bytesLeitura, Long escritas, Long bytesEscrita, Integer fkMaquina, Integer fkInfoDisco,
@@ -134,6 +136,14 @@ public class ModelDisco {
 
     public void setDataCaptura(Date dataCaptura) {
         this.dataCaptura = dataCaptura;
+    }
+
+    public Boolean getDesligada() {
+        return desligada;
+    }
+
+    public void setDesligada(Boolean desligada) {
+        this.desligada = desligada;
     }
 
     @Override

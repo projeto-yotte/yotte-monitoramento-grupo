@@ -5,18 +5,17 @@ public class ModelMaquina {
     private String ip;
     private String so;
     private String modelo;
-    private boolean desligada;
+
     private Integer fkUsuario;
     private Integer fkToken;
 
     public ModelMaquina() {
     }
 
-    public ModelMaquina(String ip, String so, String modelo, boolean desligada, Integer fkUsuario, Integer fkToken) {
+    public ModelMaquina(String ip, String so, String modelo, Integer fkUsuario, Integer fkToken) {
         this.ip = ip;
         this.so = so;
         this.modelo = modelo;
-        this.desligada = desligada;
         this.fkUsuario = fkUsuario;
         this.fkToken = fkToken;
     }
@@ -53,13 +52,6 @@ public class ModelMaquina {
         this.modelo = modelo;
     }
 
-    public boolean isDesligada() {
-        return desligada;
-    }
-
-    public void setDesligada(boolean desligada) {
-        this.desligada = desligada;
-    }
 
     public Integer getFkUsuario() {
         return fkUsuario;
@@ -84,10 +76,9 @@ public class ModelMaquina {
                         "IP: %s%n" +
                         "Sistema Operacional: %s%n" +
                         "Modelo: %s%n" +
-                        "Desligada: %s%n" +
                         "FK Usuário: %d%n" +
                         "FK Token: %d%n",
-                idMaquina, ip, so, modelo, desligada, fkUsuario, fkToken
+                idMaquina, ip, so, modelo, fkUsuario, fkToken
         );
     }
 }

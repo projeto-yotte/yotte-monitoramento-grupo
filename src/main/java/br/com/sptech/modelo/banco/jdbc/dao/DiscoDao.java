@@ -30,13 +30,14 @@ public class DiscoDao {
             Conexao conexao = new Conexao();
             JdbcTemplate con = conexao.getConexaoDoBanco();
 
-            con.update("INSERT INTO dados_captura (byte_leitura, leituras, byte_escrita, escritas, data_captura, fk_componente) VALUES (?, ?, ?, ?, ?, ?)",
+            con.update("INSERT INTO dados_captura (byte_leitura, leituras, byte_escrita, escritas, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?, ?, ?, ?)",
                     novaCapturaDisco.getBytesLeitura(),
                     novaCapturaDisco.getLeituras(),
                     novaCapturaDisco.getBytesEscrita(),
                     novaCapturaDisco.getEscritas(),
                     novaCapturaDisco.getDataCaptura(),
-                    idInfo
+                    idInfo,
+                    novaCapturaDisco.getDesligada()
             );
         } else {
             throw new RuntimeException("ID não foi capturado. Execute salvarCapturaFixa() primeiro.");

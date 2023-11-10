@@ -15,9 +15,8 @@ public class MaquinaDao {
         Conexao conexao = new Conexao();
         JdbcTemplate con = conexao.getConexaoDoBanco();
 
-        con.update("INSERT INTO maquina (ip, so, modelo, desligada, fk_usuario, fk_token) VALUES (?, ?, ?, ?, ?, ?)",
-                novaMaquina.getIp(), novaMaquina.getSo(), novaMaquina.getModelo(),
-                novaMaquina.isDesligada(), fkUsuario, fkToken);
+        con.update("INSERT INTO maquina (ip, so, modelo, fk_usuario, fk_token) VALUES (?, ?, ?, ?, ?)",
+                novaMaquina.getIp(), novaMaquina.getSo(), novaMaquina.getModelo(), fkUsuario, fkToken);
 
         idMaquina = con.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
     }
