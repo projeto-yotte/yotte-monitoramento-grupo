@@ -28,6 +28,10 @@ import java.util.Scanner;
 
 public class App {
     private static String logUserName = "";
+
+    public static void setLogUserName(String userName) {
+        logUserName = userName;
+    }
     private static String getLogFileName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateStr = sdf.format(new Date());
@@ -135,6 +139,7 @@ public class App {
 
                     System.out.println("Digite seu nome:");
                     nome = leitorTexto.nextLine();
+                    App.setLogUserName(nome);
 
                     System.out.println("Digite seu email:");
                     email = leitorTexto.nextLine();
@@ -227,6 +232,7 @@ public class App {
                     UsuarioDao usuarioDao1 = new UsuarioDao();
                     System.out.println("Digite seu email:");
                     validarEmail = leitorTexto.nextLine();
+                    App.setLogUserName(validarEmail);
                     System.out.println("Digite sua senha:");
                     validarSenha = leitorTexto.nextLine();
 

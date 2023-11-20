@@ -1,0 +1,80 @@
+2023-11-20 11:46:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:30 - Login bem-sucedido para o usuário: dan@.com.com
+2023-11-20 11:46:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:40 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 7,3 GiB
+Disponível: 506,3 MiB
+Total: 7,8 GiB
+
+2023-11-20 11:46:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:41 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 7,3 GiB
+Disponível: 494,1 MiB
+Total: 7,8 GiB
+
+2023-11-20 11:46:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:46:51 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 7,4 GiB
+Disponível: 438,0 MiB
+Total: 7,8 GiB
+
+2023-11-20 11:47:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:01 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 7,4 GiB
+Disponível: 441,0 MiB
+Total: 7,8 GiB
+
+2023-11-20 11:47:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:11 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 7,4 GiB
+Disponível: 440,1 MiB
+Total: 7,8 GiB
+
+2023-11-20 11:47:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:21 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 7,3 GiB
+Disponível: 463,6 MiB
+Total: 7,8 GiB
+
+2023-11-20 11:47:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-20 11:47:31 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 7,4 GiB
+Disponível: 443,0 MiB
+Total: 7,8 GiB
+
