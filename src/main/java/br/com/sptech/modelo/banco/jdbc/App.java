@@ -139,10 +139,10 @@ public class App {
 
                     System.out.println("Digite seu nome:");
                     nome = leitorTexto.nextLine();
-                    App.setLogUserName(nome);
 
                     System.out.println("Digite seu email:");
                     email = leitorTexto.nextLine();
+                    App.setLogUserName(email);
 
                     System.out.println("Digite sua senha:");
                     senha = leitorTexto.nextLine();
