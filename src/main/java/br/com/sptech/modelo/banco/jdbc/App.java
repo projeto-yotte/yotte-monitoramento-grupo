@@ -1,8 +1,5 @@
 package br.com.sptech.modelo.banco.jdbc;
-
-import br.com.sptech.modelo.banco.jdbc.dao.MaquinaDao;
-import br.com.sptech.modelo.banco.jdbc.dao.MemoriaDao;
-import br.com.sptech.modelo.banco.jdbc.dao.UsuarioDao;
+import br.com.sptech.modelo.banco.jdbc.dao.*;
 import br.com.sptech.modelo.banco.jdbc.modelo.*;
 import br.com.sptech.modelo.banco.jdbc.servico.Maquina;
 import com.github.britooo.looca.api.group.discos.Disco;
@@ -81,6 +78,12 @@ public class App {
 
         ModelUsuario novoUsuario = new ModelUsuario();
         UsuarioDao usuarioDao = new UsuarioDao();
+
+        FuncionarioDao funcionarioDao = new FuncionarioDao();
+        ModelFuncionario novoFunc = new ModelFuncionario();
+
+        ModelAdm loginAdm = new ModelAdm();
+        AdmDao admDao = new AdmDao();
 
         Looca looca = new Looca();
 
@@ -173,13 +176,13 @@ public class App {
                                 if (usuarioDao.buscarEmpresaPorNome(empresa) != null) {
                                     Integer fkEmpresa = usuarioDao.buscarEmpresaPorNome(empresa);
 
-                                    novoUsuario.setNome(nome);
-                                    novoUsuario.setEmail(email);
-                                    novoUsuario.setSenha(senha);
-                                    novoUsuario.setArea(area);
-                                    novoUsuario.setCargo(cargo);
-                                    novoUsuario.setFkEmpresa(fkEmpresa);
-                                    novoUsuario.setFkTipoUsuario(3);
+                                    novoFunc.setNome(nome);
+                                    novoFunc.setEmail(email);
+                                    novoFunc.setSenha(senha);
+                                    novoFunc.setArea(area);
+                                    novoFunc.setCargo(cargo);
+                                    novoFunc.setFkEmpresa(fkEmpresa);
+                                    novoFunc.setFkTipoUsuario(3);
                                     logUserName = nome;
 
                                     MaquinaDao maquinaDao = new MaquinaDao();
@@ -188,7 +191,7 @@ public class App {
                                     novaMaquina.setSo(so);
                                     novaMaquina.setModelo(modelo);
 
-                                    usuarioDao.salvarUsuario(novoUsuario);
+                                    usuarioDao.salvarUsuario(novoFunc);
                                     maquinaDao.salvarMaquina(novaMaquina, usuarioDao.buscarIdUsuario(novoUsuario), usuarioDao.buscarIdToken(matricula));
                                     maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(novoUsuario));
 
@@ -221,6 +224,7 @@ public class App {
             do {
                 try {
                     ModelUsuario usuario = new ModelUsuario();
+                    UsuarioDao usuarioDao1 = new UsuarioDao();
                     System.out.println("Digite seu email:");
                     validarEmail = leitorTexto.nextLine();
                     System.out.println("Digite sua senha:");
@@ -228,14 +232,38 @@ public class App {
 
                     usuario.setEmail(validarEmail);
                     usuario.setSenha(validarSenha);
-
                     if (usuarioDao.isUsuarioExistente(usuario)) {
                         todasValidacoesLogin = true;
                         System.out.println("Id usuario: " + usuarioDao.buscarIdUsuario(usuario));
+
                         maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(usuario));
                         logado = true;
+                        if (usuarioDao1.buscarFkTipoUsuario(usuario).equals(2)) {
+                            Scanner scanneremail = new Scanner(System.in);
+                            Scanner scanner01 = new Scanner(System.in);
+                            ;
+                            System.out.println("O que deseja fazer?\n" +
+                                    "                - 0 (Ver usuario especifico)\n" +
+                                    "                - 1 (Lista de funcionarios)\n"
+                                   );
+                            Integer opcao2 = scanner01.nextInt();
+                            if (opcao2 == 0) {
+                                System.out.println("Digite o email do funcionario que voce quer ver");
+                                String email = scanneremail.nextLine();
+                                System.out.println("Digite o tempo dos ultimos dados adicionar");
+                                Integer tempo = scanner01.nextInt();
+
+                                System.out.println(admDao.buscarFuncEmail(email, tempo));
+                            } else if (opcao2 == 1) {
+                                System.out.println(admDao.buscarListFunc(usuario));
+                            }
+                        }
+//                        } else if (usuario.getFkTipoUsuario().equals(3)) {
+//
+//                        }
 
                         log("Login bem-sucedido para o usuário: " + usuario.getEmail());
+
                     } else {
                         System.out.println("Email ou senha incorretas. Tente novamente!");
                     }

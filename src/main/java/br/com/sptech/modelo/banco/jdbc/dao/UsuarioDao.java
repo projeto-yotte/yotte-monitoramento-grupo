@@ -50,7 +50,7 @@ public class UsuarioDao {
         JdbcTemplate con = conexao.getConexaoDoBanco();
 
         String dbToken = con.queryForObject("SELECT token FROM token WHERE token = ?", String.class, token);
-        
+
         return token.equals(dbToken); // O token é válido
     }
 
@@ -71,6 +71,16 @@ public class UsuarioDao {
 
         return fkEmpresa;
     }
+
+    public Integer buscarFkTipoUsuario(ModelUsuario usuario) {
+        Conexao conexao = new Conexao();
+        JdbcTemplate con = conexao.getConexaoDoBanco();
+        String sql = "SELECT fk_tipo_usuario FROM usuario WHERE email = ? AND senha = ?";
+        Integer fk_tipo = con.queryForObject(sql, Integer.class, usuario.getEmail(), usuario.getSenha());
+        return fk_tipo;
+    }
+
+
 
     public Integer getIdUsuario() {
         return idUsuario;
