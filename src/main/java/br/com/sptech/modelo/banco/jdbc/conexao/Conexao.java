@@ -7,20 +7,27 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class Conexao {
 
     private JdbcTemplate conexaoDoBanco;
+    private Boolean conexaoEstabelecida = false;
 
     public Conexao() {
         try {
-            BasicDataSource dataSource = new BasicDataSource();
+            if (!conexaoEstabelecida) {
+                BasicDataSource dataSource = new BasicDataSource();
+                // Configurações para o MySQL
+                dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+                dataSource.setUrl("jdbc:mysql://localhost:3306/yotte");
+                dataSource.setUsername("yotte");
+                dataSource.setPassword("Yotte@42");
 
-            // Configurações para o MySQL
-            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-            dataSource.setUrl("jdbc:mysql://localhost:3306/yotte");
-            dataSource.setUsername("yotte");
-            dataSource.setPassword("Yotte@42");
+                this.conexaoDoBanco = new JdbcTemplate(dataSource);
 
-            this.conexaoDoBanco = new JdbcTemplate(dataSource);
+                App.log("Conexão com o banco de dados estabelecida com sucesso.");
 
-            App.log("Conexão com o banco de dados estabelecida com sucesso.");
+                dataSource.getConnection().close();
+                this.conexaoDoBanco = new JdbcTemplate(dataSource);
+                conexaoEstabelecida = true;  // Marcamos a conexão como estabelecida
+                App.log("Conexão com o banco de dados estabelecida com sucesso.");
+            }
         } catch (Exception e) {
             App.logError("Erro ao estabelecer a conexão com o banco de dados.", e);
         }

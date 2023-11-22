@@ -27,7 +27,6 @@ public class MemoriaDao {
         if (idInfo != null) {
             Conexao conexao = new Conexao();
             JdbcTemplate con = conexao.getConexaoDoBanco();
-
             con.update("INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)",
                     novaCapturaRam.getMemoriaUso(),
                     novaCapturaRam.getDataCaptura(),
@@ -43,7 +42,7 @@ public class MemoriaDao {
         Conexao conexao = new Conexao();
         JdbcTemplate con = conexao.getConexaoDoBanco();
 
-        String sql = "SELECT m.id_maquina\n" +
+            String sql = "SELECT c.id_componente\n" +
                 "FROM componente c\n" +
                 "JOIN info_componente i ON c.fk_info = i.id_info\n" +
                 "JOIN maquina m ON c.fk_maquina = m.id_maquina\n" +
