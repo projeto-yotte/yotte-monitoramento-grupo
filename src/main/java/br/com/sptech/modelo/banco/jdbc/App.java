@@ -93,14 +93,24 @@ public class App {
 
         Scanner leitor = new Scanner(System.in);
         Scanner leitorTexto = new Scanner(System.in);
-
-
-
         Boolean logado = false;
 
         ValidacoesUsuario validacoesUsuario = new ValidacoesUsuario();
 
 
+        // TESTES DE SEGUNDO PLANO ======================
+        ActiveWindowDetector windowDetector = new ActiveWindowDetector();
+        List<ActiveWindowDetector.WindowInfo> windowsInfo = windowDetector.getActiveWindowInfo();
+
+        for (ActiveWindowDetector.WindowInfo ws : windowsInfo) {
+            if (ws != null) {
+                System.out.println("Window Name: " + ws.getWindowName());
+                System.out.println("PID: " + ws.getProcessId());
+                System.out.println("Is in Foreground: " + ws.isInForeground());
+            }
+        }
+
+        // ===============================================
 
         System.out.println("""
                         :::   :::  ::::::::  ::::::::::: ::::::::::: ::::::::::
