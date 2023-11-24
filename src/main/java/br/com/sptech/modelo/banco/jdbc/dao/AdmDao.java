@@ -3,7 +3,7 @@ import br.com.sptech.modelo.banco.jdbc.conexao.Conexao;
 import br.com.sptech.modelo.banco.jdbc.modelo.ModelAdm;
 import br.com.sptech.modelo.banco.jdbc.modelo.ModelUsuario;
 import com.mysql.cj.xdevapi.JsonString;
-import org.h2.util.json.JSONObject;
+//import org.h2.util.json.JSONObject;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

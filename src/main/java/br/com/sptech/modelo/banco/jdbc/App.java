@@ -206,9 +206,9 @@ public class App {
                                     novaMaquina.setSo(so);
                                     novaMaquina.setModelo(modelo);
 
-                                    usuarioDao.salvarUsuario(novoFunc);
-                                    maquinaDao.salvarMaquina(novaMaquina, usuarioDao.buscarIdUsuario(novoUsuario), usuarioDao.buscarIdToken(matricula));
-                                    maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(novoUsuario));
+                                    funcionarioDao.salvarUsuario(novoFunc);
+                                    maquinaDao.salvarMaquina(novaMaquina, funcionarioDao.buscarIdUsuario(novoFunc), funcionarioDao.buscarIdToken(matricula));
+                                    maquina01.buscarIdMaquina(funcionarioDao.buscarIdUsuario(novoFunc));
 
                                     logado = true;
                                     log("Cadastro bem-sucedido para o usuário " + nome);
