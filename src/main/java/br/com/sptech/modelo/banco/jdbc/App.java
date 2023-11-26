@@ -13,9 +13,7 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.processos.Processo;
 import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
 
-import java.io.File;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +22,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
 
 public class App {
     private static String logUserName = "";
@@ -230,6 +227,7 @@ public class App {
                     logError("Erro durante a verificação de senha e email", e);
                 }
             } while (!todasValidacoes);
+
         } else if (opcao == 1) {
             // Login
             Boolean todasValidacoesLogin = false;
@@ -363,22 +361,39 @@ public class App {
                         novaCapturaDisco.setDesligada(false);
                     }
 
-                    for (Janela janela : janelas) {
-                        novaCapturaJanela.setPid(janela.getPid());
-                        novaCapturaJanela.setTitulo(janela.getTitulo());
-                        novaCapturaJanela.setComando(janela.getComando());
-                        novaCapturaJanela.setVisivel(janela.isVisivel());
-                        novaCapturaJanela.setDataCaptura(new Date());
+                    int tamanho = Math.max(windowsInfo.size(), Math.max(janelas.size(), processos.size()));
+
+                    for (int i = 0; i < tamanho; i++) {
+                        Janela janela = (i < janelas.size()) ? janelas.get(i) : null;
+                        Processo processo = (i < processos.size()) ? processos.get(i) : null;
+                        ActiveWindowDetector.WindowInfo ws = (i < windowsInfo.size()) ? windowsInfo.get(i) : new ActiveWindowDetector.WindowInfo("", 0, false, null);
+                        ActiveWindowDetector activeWindowDetector = new ActiveWindowDetector();
+
+                        long pidJanela = (janela != null && janela.getPid() != null) ? janela.getPid() : (long) ws.getProcessId();
+
+                        // Verificar se o PID da janela corresponde ao PID do ws
+                        if (ws != null && ws.getProcessId() != 0 && pidJanela != 0 && pidJanela != ws.getProcessId()) {
+                            System.out.println("Aviso: PID da janela não corresponde ao PID do ws.");
+                        } else {
+                            novaCapturaJanela.setPid(pidJanela);
+                            novaCapturaJanela.setTitulo((janela != null && janela.getTitulo() != null) ? janela.getTitulo() : ((ws != null) ? ws.getWindowName() : null));
+                            novaCapturaJanela.setComando((janela != null && janela.getComando() != null) ? janela.getComando() : "");
+                            novaCapturaJanela.setVisivel(activeWindowDetector.isPidInForeground(novaCapturaJanela.getPid()));
+                            novaCapturaJanela.setDataCaptura(new Date());
+
+                            novaCapturaProcesso.setPid((processo != null) ? processo.getPid() : null);
+                            novaCapturaProcesso.setUsoCpu((processo != null && processo.getUsoCpu() != null) ? processo.getUsoCpu() : ((ws != null && ws.getPerformanceInfo() != null) ? ws.getPerformanceInfo().getCpuUsage() : 0.0));
+                            novaCapturaProcesso.setUsoMemoria((processo != null && processo.getUsoMemoria() != null) ? processo.getUsoMemoria() : ((ws != null && ws.getPerformanceInfo() != null) ? ws.getPerformanceInfo().getMemoryUsage() : 0.0));
+                            novaCapturaProcesso.setBytesUtilizados((processo != null) ? processo.getBytesUtilizados() : null);
+
+                            if (novaCapturaJanela.getPid() != 0 && (novaCapturaJanela.getTitulo() != null || ws.getWindowName() != null)) {
+                                maquina01.capturarJanelasProcessos(novaCapturaJanela, novaCapturaProcesso);
+                            }
+                        }
                     }
 
-                    for (Processo processo : processos) {
-                        novaCapturaProcesso.setPid(processo.getPid());
-                        novaCapturaProcesso.setUsoCpu(processo.getUsoCpu());
-                        novaCapturaProcesso.setUsoMemoria(processo.getUsoMemoria());
-                        novaCapturaProcesso.setBytesUtilizados(processo.getBytesUtilizados());
-                    }
 
-                    maquina01.capturarDadosDinamico(novaCapturaRam, novaCapturaCpu, novaCapturaDisco, novaCapturaJanela, novaCapturaProcesso);
+                    maquina01.capturarDadosDinamico(novaCapturaRam, novaCapturaCpu, novaCapturaDisco);
 
                     // Imprima uma mensagem de sucesso no console
                     System.out.println("Dados de memória capturados e salvos com sucesso!");

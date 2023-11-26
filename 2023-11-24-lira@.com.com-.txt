@@ -1,0 +1,622 @@
+2023-11-24 16:06:18 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:21 - Login bem-sucedido para o usuário: lira@.com.com
+2023-11-24 16:06:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:24 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:24 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:24 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:06:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:32 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:06:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:42 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:06:52 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:52 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:06:52 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:07:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:02 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:07:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:12 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:07:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:22 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:07:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:32 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:07:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:42 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:07:52 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:52 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:07:52 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:08:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:08:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:08:02 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:08:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:08:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:08:12 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:08:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:08:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:08:22 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:08:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:08:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:08:32 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:09:14 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:15 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:16 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:16 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:16 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:16 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:16 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:16 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:16 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:16 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:16 - Login bem-sucedido para o usuário: lira@.com.com
+2023-11-24 16:09:17 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:17 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:17 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:17 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:17 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:17 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:17 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:17 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:19 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:19 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:21 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:09:27 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:27 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:27 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:27 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:28 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:28 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:28 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:28 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:28 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:28 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:28 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:28 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:29 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:29 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:29 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:09:37 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:37 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:37 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:37 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:38 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:38 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:38 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:38 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:38 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:38 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:38 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:38 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:39 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:39 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:39 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:09:47 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:47 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:47 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:48 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:48 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:48 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:48 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:48 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:48 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:48 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:48 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:48 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:49 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:49 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:09:49 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:13:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:32 - Login bem-sucedido para o usuário: lira@.com.com
+2023-11-24 16:13:33 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:33 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:33 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:33 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:33 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:33 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:33 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:33 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:35 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:35 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:36 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:36 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:36 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:36 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:36 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:36 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:36 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:36 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:37 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:37 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:37 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:37 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:38 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:13:43 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:43 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:44 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:44 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:44 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:44 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:44 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:44 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:44 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:44 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:45 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:45 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:45 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:45 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:13:45 - Erro ao capturar e salvar dados de memória: PreparedStatementCallback; bad SQL grammar [INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)]; nested exception is java.sql.SQLException: Column count doesn't match value count at row 1
+2023-11-24 16:19:07 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:08 - Login bem-sucedido para o usuário: lira@.com.com
+2023-11-24 16:19:09 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:13 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:13 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:13 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:13 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:13 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:13 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:14 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:14 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:14 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:14 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:14 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:14 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:14 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,0 GiB
+Disponível: 2,6 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:19:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:22 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,0 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:19:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:32 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:19:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:42 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:19:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:52 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:52 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:19:52 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:20:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:02 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:20:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:12 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:20:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:22 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:22 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:20:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:32 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:20:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:42 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:42 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:20:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:52 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:20:52 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:21:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:02 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:21:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:10 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:11 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:12 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:12 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:21:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:20 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:21 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:22 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:21:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:30 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:31 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:32 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:32 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:21:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:40 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:41 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:42 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:21:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:50 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:51 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:52 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:52 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:21:52 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+
+2023-11-24 16:22:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:00 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:01 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:02 - Conexão com o banco de dados estabelecida com sucesso.
+2023-11-24 16:22:02 - Dados de memória capturados e salvos com sucessoMemoria
+Em uso: 5,1 GiB
+Disponível: 2,5 GiB
+Total: 7,6 GiB
+

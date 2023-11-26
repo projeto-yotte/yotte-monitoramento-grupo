@@ -10,11 +10,12 @@ public class JanelaDao {
         Conexao conexao = new Conexao();
         JdbcTemplate con = conexao.getConexaoDoBanco();
 
-        con.update("INSERT INTO janela (pid, titulo, comando, visivel, fk_maquina) VALUES (?, ?, ?, ?, ?)",
+        con.update("INSERT INTO janela (pid, titulo, comando, visivel, data_captura, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)",
                 novaCapturaJanela.getPid(),
                 novaCapturaJanela.getTitulo(),
                 novaCapturaJanela.getComando(),
                 novaCapturaJanela.getVisivel(),
+                novaCapturaJanela.getDataCaptura(),
                 fkMaquina
         );
     }

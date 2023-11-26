@@ -62,16 +62,19 @@ public class Maquina {
 
     public void capturarDadosDinamico(ModelMemoria novaCapturaRam,
                                       ModelCpu novaCapturaCpu,
-                                      ModelDisco novaCapturaDisco,
-                                      ModelJanela novaCapturaJanela,
-                                      ModelProcesso novaCapturaProcesso) {
+                                      ModelDisco novaCapturaDisco) {
 
         memoriaDao.salvarCapturaDinamica(novaCapturaRam);
         cpuDao.salvarCapturaDinamica(novaCapturaCpu);
         discoDao.salvarCapturaDinamica(novaCapturaDisco);
+    }
+
+    public void capturarJanelasProcessos(ModelJanela novaCapturaJanela,
+                                         ModelProcesso novaCapturaProcesso) {
         janelaDao.atualizarJanela(novaCapturaJanela, idMaquina);
         processoDao.atualizarProcesso(novaCapturaProcesso, idMaquina);
     }
+
 
     public Integer getIdMaquina() {
         return idMaquina;
