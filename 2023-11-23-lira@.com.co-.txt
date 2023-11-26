@@ -1,2 +1,0 @@
-2023-11-23 20:24:02 - Conexão com o banco de dados estabelecida com sucesso.
-2023-11-23 20:24:03 - Conexão com o banco de dados estabelecida com sucesso.
