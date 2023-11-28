@@ -20,6 +20,9 @@ public class DiscoDao {
                     "disco", "bytes", idInfo, fkMaquina);
 
 
+            con.update("INSERT INTO parametro_componente (valor_minimo, valor_maximo, fk_componente) VALUES ( ?, ?, ?)", 30, 80, idInfo);
+
+
         } else {
             throw new RuntimeException("Precisa existir uma máquina no banco primeiro.");
         }

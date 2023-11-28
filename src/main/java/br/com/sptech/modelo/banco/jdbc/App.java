@@ -272,9 +272,7 @@ public class App {
                                 System.out.println(admDao.buscarListFunc(usuario));
                             }
                         }
-//                        } else if (usuario.getFkTipoUsuario().equals(3)) {
 //
-//                        }
 
                         log("Login bem-sucedido para o usuário: " + usuario.getEmail());
 
