@@ -15,7 +15,7 @@ public class Conexao {
                 BasicDataSource dataSource = new BasicDataSource();
                 // Configurações para o MySQL
                 dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-                dataSource.setUrl("jdbc:mysql://localhost:3306/yotte")
+                dataSource.setUrl("jdbc:mysql://localhost:3306/yotte");
                 dataSource.setUsername("yotte");
                 dataSource.setPassword("yotte2023");
 
