@@ -91,6 +91,7 @@ public class App {
         Scanner leitor = new Scanner(System.in);
         Scanner leitorTexto = new Scanner(System.in);
         Boolean logado = false;
+        ModelUsuario usuario = new ModelUsuario();
 
         ValidacoesUsuario validacoesUsuario = new ValidacoesUsuario();
 
@@ -188,13 +189,13 @@ public class App {
                                 if (usuarioDao.buscarEmpresaPorNome(empresa) != null) {
                                     Integer fkEmpresa = usuarioDao.buscarEmpresaPorNome(empresa);
 
-                                    novoFunc.setNome(nome);
-                                    novoFunc.setEmail(email);
-                                    novoFunc.setSenha(senha);
-                                    novoFunc.setArea(area);
-                                    novoFunc.setCargo(cargo);
-                                    novoFunc.setFkEmpresa(fkEmpresa);
-                                    novoFunc.setFkTipoUsuario(3);
+                                    novoUsuario.setNome(nome);
+                                    novoUsuario.setEmail(email);
+                                    novoUsuario.setSenha(senha);
+                                    novoUsuario.setArea(area);
+                                    novoUsuario.setCargo(cargo);
+                                    novoUsuario.setFkEmpresa(fkEmpresa);
+                                    novoUsuario.setFkTipoUsuario(3);
                                     logUserName = nome;
 
                                     MaquinaDao maquinaDao = new MaquinaDao();
@@ -203,9 +204,9 @@ public class App {
                                     novaMaquina.setSo(so);
                                     novaMaquina.setModelo(modelo);
 
-                                    funcionarioDao.salvarUsuario(novoFunc);
-                                    maquinaDao.salvarMaquina(novaMaquina, funcionarioDao.buscarIdUsuario(novoFunc), funcionarioDao.buscarIdToken(matricula));
-                                    maquina01.buscarIdMaquina(funcionarioDao.buscarIdUsuario(novoFunc));
+                                    usuarioDao.salvarUsuario(novoUsuario);
+                                    maquinaDao.salvarMaquina(novaMaquina, usuarioDao.buscarIdUsuario(novoUsuario), usuarioDao.buscarIdToken(matricula));
+                                    maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(novoUsuario));
 
                                     logado = true;
                                     log("Cadastro bem-sucedido para o usuário " + nome);
@@ -236,8 +237,7 @@ public class App {
 
             do {
                 try {
-                    ModelUsuario usuario = new ModelUsuario();
-                    UsuarioDao usuarioDao1 = new UsuarioDao();
+
                     System.out.println("Digite seu email:");
                     validarEmail = leitorTexto.nextLine();
                     App.setLogUserName(validarEmail);
@@ -246,13 +246,16 @@ public class App {
 
                     usuario.setEmail(validarEmail);
                     usuario.setSenha(validarSenha);
+                    System.out.println(usuarioDao.isUsuarioExistente(usuario));
                     if (usuarioDao.isUsuarioExistente(usuario)) {
                         todasValidacoesLogin = true;
-                        System.out.println("Id usuario: " + usuarioDao.buscarIdUsuario(usuario));
 
-                        maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(usuario));
+                        System.out.println("Id usuario: " + usuarioDao.buscarIdUsuario(usuario));
+                        System.out.println(usuarioDao.buscarFkTipoUsuario(usuario));
+
+                        System.out.println("ou");
                         logado = true;
-                        if (usuarioDao1.buscarFkTipoUsuario(usuario).equals(2)) {
+                        if (usuarioDao.buscarFkTipoUsuario(usuario).equals(2)) {
                             Scanner scanneremail = new Scanner(System.in);
                             Scanner scanner01 = new Scanner(System.in);
                             ;
@@ -262,9 +265,9 @@ public class App {
                                    );
                             Integer opcao2 = scanner01.nextInt();
                             if (opcao2 == 0) {
-                                System.out.println("Digite o email do funcionario que voce quer ver");
+                                System.out.println("Digite o email do funcionario que voce quer ver:");
                                 String email = scanneremail.nextLine();
-                                System.out.println("Digite o tempo dos ultimos dados adicionar");
+                                System.out.println("Deseja ver os dados coletados de quantas horas atras:");
                                 Integer tempo = scanner01.nextInt();
 
                                 System.out.println(admDao.buscarFuncEmail(email, tempo));
@@ -298,7 +301,8 @@ public class App {
         leitor.close();
         leitorTexto.close();
 
-        if (logado.equals(true)) {
+        if (logado.equals(true) && usuarioDao.buscarFkTipoUsuario(usuario).equals(3) ) {
+            maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(usuario));
             // Obtenha os dados da API Looca
             Memoria memoria = looca.getMemoria();
 
