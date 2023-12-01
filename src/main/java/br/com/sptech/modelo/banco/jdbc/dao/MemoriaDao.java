@@ -18,6 +18,9 @@ public class MemoriaDao {
             idInfo = con.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
 
             con.update("INSERT INTO componente (nome, parametro, fk_info, fk_maquina) VALUES (?, ?, ?, ?)", "memoria", "bytes", idInfo, idMaquina);
+
+            con.update("INSERT INTO parametro_componente (valor_minimo, valor_maximo, fk_componente) VALUES ( ?, ?, ?)", 30, 80, idInfo);
+
         } else {
             throw new RuntimeException("Precisa existir uma máquina no banco primeiro.");
         }

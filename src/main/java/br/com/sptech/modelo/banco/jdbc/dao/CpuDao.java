@@ -22,6 +22,9 @@ public class CpuDao {
             // Inserir dados na tabela componente
             con.update("INSERT INTO componente (nome, parametro, fk_info, fk_maquina) VALUES (?, ?, ?, ?)",
                     "cpu", "%", idInfo, fkMaquina);
+
+            con.update("INSERT INTO parametro_componente (valor_minimo, valor_maximo, fk_componente) VALUES ( ?, ?, ?)", 30, 80, idInfo);
+
         } else {
             throw new RuntimeException("Precisa existir um processador no banco primeiro.");
         }
