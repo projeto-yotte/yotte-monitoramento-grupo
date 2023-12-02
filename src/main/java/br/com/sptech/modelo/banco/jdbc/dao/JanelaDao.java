@@ -6,26 +6,45 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class JanelaDao {
 
-    public void atualizarJanela(ModelJanela novaCapturaJanela, Integer fkMaquina) {
-        Conexao conexao = new Conexao();
-        JdbcTemplate con = conexao.getConexaoDoBanco();
+    public void atualizarJanela(ModelJanela novaCapturaJanela, Integer fkMaquina, JdbcTemplate conexaoMySQL, JdbcTemplate conexaoSQLServer) {
+        try {
+            // Atualizar no MySQL
+            conexaoMySQL.update("INSERT INTO janela (pid, titulo, comando, visivel, data_captura, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)",
+                    novaCapturaJanela.getPid(),
+                    novaCapturaJanela.getTitulo(),
+                    novaCapturaJanela.getComando(),
+                    novaCapturaJanela.getVisivel(),
+                    novaCapturaJanela.getDataCaptura(),
+                    fkMaquina
+            );
 
-        con.update("INSERT INTO janela (pid, titulo, comando, visivel, data_captura, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)",
-                novaCapturaJanela.getPid(),
-                novaCapturaJanela.getTitulo(),
-                novaCapturaJanela.getComando(),
-                novaCapturaJanela.getVisivel(),
-                novaCapturaJanela.getDataCaptura(),
-                fkMaquina
-        );
+            // Atualizar no SQL Server
+            conexaoSQLServer.update("INSERT INTO janela (pid, titulo, comando, visivel, data_captura, fk_maquina) VALUES (?, ?, ?, ?, ?, ?)",
+                    novaCapturaJanela.getPid(),
+                    novaCapturaJanela.getTitulo(),
+                    novaCapturaJanela.getComando(),
+                    novaCapturaJanela.getVisivel(),
+                    novaCapturaJanela.getDataCaptura(),
+                    fkMaquina
+            );
+        } catch (Exception e) {
+            // Tratar exceções
+            e.printStackTrace();
+        }
     }
 
-    public void excluirJanela(Integer idJanela) {
-        Conexao conexao = new Conexao();
-        JdbcTemplate con = conexao.getConexaoDoBanco();
+    public void excluirJanela(Integer idJanela, JdbcTemplate conexaoMySQL, JdbcTemplate conexaoSQLServer) {
+        try {
+            // Excluir do MySQL
+            conexaoMySQL.update("DELETE FROM janela WHERE idJanela = ?", idJanela);
 
-        con.update("DELETE FROM janela WHERE idJanela = ?", idJanela);
+            // Excluir do SQL Server
+            conexaoSQLServer.update("DELETE FROM janela WHERE idJanela = ?", idJanela);
 
-        System.out.println("Janela excluída com sucesso!");
+            System.out.println("Janela excluída com sucesso!");
+        } catch (Exception e) {
+            // Tratar exceções
+            e.printStackTrace();
+        }
     }
 }

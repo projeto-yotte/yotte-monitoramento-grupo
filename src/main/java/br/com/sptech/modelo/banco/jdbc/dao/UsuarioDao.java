@@ -2,88 +2,105 @@ package br.com.sptech.modelo.banco.jdbc.dao;
 
 import br.com.sptech.modelo.banco.jdbc.conexao.Conexao;
 import br.com.sptech.modelo.banco.jdbc.modelo.ModelUsuario;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-
-import java.util.List;
 
 public class UsuarioDao {
     private Integer idUsuario;
 
     public UsuarioDao() {}
 
-    public Integer salvarUsuario(ModelUsuario novoUsuario) {
-        Conexao conexao = new Conexao();
-        JdbcTemplate con = conexao.getConexaoDoBanco();
+    public Integer salvarUsuario(ModelUsuario novoUsuario, JdbcTemplate conexaoMySQL, JdbcTemplate conexaoSQLServer) {
+        try {
+            // Salvar no MySQL
+            conexaoMySQL.update("INSERT INTO usuario (nome, email, senha, area, cargo, fk_empresa, fk_tipo_usuario) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    novoUsuario.getNome(), novoUsuario.getEmail(), novoUsuario.getSenha(), novoUsuario.getArea(),
+                    novoUsuario.getCargo(), novoUsuario.getFkEmpresa(), novoUsuario.getFkTipoUsuario());
 
-        con.update("INSERT INTO usuario (nome, email, senha, area, cargo, fk_empresa, fk_tipo_usuario) VALUES (?, ?, ?, ?, ?, ?, ?)", novoUsuario.getNome(), novoUsuario.getEmail(), novoUsuario.getSenha(), novoUsuario.getArea(), novoUsuario.getCargo(), novoUsuario.getFkEmpresa(), novoUsuario.getFkTipoUsuario());
+            // Salvar no SQL Server
+            conexaoSQLServer.update("INSERT INTO usuario (nome, email, senha, area, cargo, fk_empresa, fk_tipo_usuario) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    novoUsuario.getNome(), novoUsuario.getEmail(), novoUsuario.getSenha(), novoUsuario.getArea(),
+                    novoUsuario.getCargo(), novoUsuario.getFkEmpresa(), novoUsuario.getFkTipoUsuario());
 
-        idUsuario = con.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
-        System.out.println(idUsuario);
+            idUsuario = getIdUsuarioMySQL(novoUsuario.getEmail(), novoUsuario.getSenha(), conexaoMySQL); // Usando o MySQL para buscar o ID
+        } catch (Exception e) {
+            // Tratar exceções
+            e.printStackTrace();
+        }
         return idUsuario;
     }
 
-    public Boolean isUsuarioExistente(ModelUsuario usuario) {
-        Conexao conexao = new Conexao();
-        JdbcTemplate con = conexao.getConexaoDoBanco();
-
-        String sql = "SELECT COUNT(*) FROM usuario WHERE email = ? AND senha = ?";
-        Integer count = con.queryForObject(sql, Integer.class, usuario.getEmail(), usuario.getSenha());
-
-        return count > 0;
+    private Integer getIdUsuarioMySQL(String email, String senha, JdbcTemplate conexaoMySQL) {
+        String sql = "SELECT LAST_INSERT_ID()";
+        return conexaoMySQL.queryForObject(sql, Integer.class);
     }
 
-    public Integer buscarIdUsuario(ModelUsuario usuario) {
-        Conexao conexao = new Conexao();
-        JdbcTemplate con = conexao.getConexaoDoBanco();
+    public Boolean isUsuarioExistente(ModelUsuario usuario, JdbcTemplate conexaoMySQL) {
+        try {
+            String sql = "SELECT COUNT(*) FROM usuario WHERE email = ? AND senha = ?";
+            Integer count = conexaoMySQL.queryForObject(sql, Integer.class, usuario.getEmail(), usuario.getSenha());
 
-        String sql = "SELECT id_usuario FROM usuario WHERE email = ? AND senha = ?";
-        Integer idUsuario = con.queryForObject(sql, Integer.class, usuario.getEmail(), usuario.getSenha());
-
-        return idUsuario;
+            return count > 0;
+        } catch (Exception e) {
+            // Tratar exceções
+            e.printStackTrace();
+            return false;
+        }
     }
 
-
-
-    public Boolean isTokenValido(String token) {
-        Conexao conexao = new Conexao();
-        JdbcTemplate con = conexao.getConexaoDoBanco();
-
-        String dbToken = con.queryForObject("SELECT token FROM token WHERE token = ?", String.class, token);
-
-        return token.equals(dbToken); // O token é válido
+    public Integer buscarIdUsuario(ModelUsuario usuario, JdbcTemplate conexaoMySQL) {
+        try {
+            String sql = "SELECT id_usuario FROM usuario WHERE email = ? AND senha = ?";
+            return conexaoMySQL.queryForObject(sql, Integer.class, usuario.getEmail(), usuario.getSenha());
+        } catch (Exception e) {
+            // Tratar exceções
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public Integer buscarIdToken(String token) {
-        Conexao conexao = new Conexao();
-        JdbcTemplate con = conexao.getConexaoDoBanco();
-
-        Integer idToken = con.queryForObject("SELECT idToken FROM token WHERE token = ?", Integer.class, token);
-
-        return idToken; // O token é válido
+    public Boolean isTokenValido(String token, JdbcTemplate conexaoMySQL) {
+        try {
+            String dbToken = conexaoMySQL.queryForObject("SELECT token FROM token WHERE token = ?", String.class, token);
+            return token.equals(dbToken); // O token é válido
+        } catch (Exception e) {
+            // Tratar exceções
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public Integer buscarEmpresaPorNome(String empresa) {
-        Conexao conexao = new Conexao();
-        JdbcTemplate con = conexao.getConexaoDoBanco();
-
-        Integer fkEmpresa = con.queryForObject("SELECT id_empresa FROM empresa WHERE nome LIKE ?", Integer.class, empresa.toLowerCase());
-
-        return fkEmpresa;
+    public Integer buscarIdToken(String token, JdbcTemplate conexaoMySQL) {
+        try {
+            return conexaoMySQL.queryForObject("SELECT idToken FROM token WHERE token = ?", Integer.class, token);
+        } catch (Exception e) {
+            // Tratar exceções
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public Integer buscarFkTipoUsuario(ModelUsuario usuario) {
-        Conexao conexao = new Conexao();
-        JdbcTemplate con = conexao.getConexaoDoBanco();
-        String sql = "SELECT fk_tipo_usuario FROM usuario WHERE email = ? AND senha = ?";
-        Integer fk_tipo = con.queryForObject(sql, Integer.class, usuario.getEmail(), usuario.getSenha());
-        return fk_tipo;
+    public Integer buscarEmpresaPorNome(String empresa, JdbcTemplate conexaoMySQL) {
+        try {
+            return conexaoMySQL.queryForObject("SELECT id_empresa FROM empresa WHERE nome LIKE ?", Integer.class, empresa.toLowerCase());
+        } catch (Exception e) {
+            // Tratar exceções
+            e.printStackTrace();
+            return null;
+        }
     }
 
-
+    public Integer buscarFkTipoUsuario(ModelUsuario usuario, JdbcTemplate conexaoMySQL) {
+        try {
+            String sql = "SELECT fk_tipo_usuario FROM usuario WHERE email = ? AND senha = ?";
+            return conexaoMySQL.queryForObject(sql, Integer.class, usuario.getEmail(), usuario.getSenha());
+        } catch (Exception e) {
+            // Tratar exceções
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public Integer getIdUsuario() {
         return idUsuario;
     }
-
 }
