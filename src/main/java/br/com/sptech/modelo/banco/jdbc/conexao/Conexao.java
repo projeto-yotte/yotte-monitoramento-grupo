@@ -12,7 +12,7 @@ public class Conexao {
     private static final String MYSQL_USERNAME = "yotte";
     private static final String MYSQL_PASSWORD = "yotte2023";
 
-    private static final String SQL_SERVER_URL = "jdbc:sqlserver://54.205.98.102;database=yotte;user=sa;password=Projetoyotte2023;trustServerCertificate=true;";
+    private static final String SQL_SERVER_URL = "jdbc:sqlserver://54.205.98.102;database=yotte;user=sa;password=Projetoyotte2023;";
     private static final String SQL_SERVER_USERNAME = "sa";
     private static final String SQL_SERVER_PASSWORD = "Projetoyotte2023";
 
@@ -23,10 +23,10 @@ public class Conexao {
     public Conexao() {
         try {
             if (!conexaoEstabelecida) {
-                BasicDataSource dataSourceMySQL = createDataSource(MYSQL_URL, MYSQL_USERNAME, MYSQL_PASSWORD);
+                DataSource dataSourceMySQL = createDataSource(MYSQL_URL, MYSQL_USERNAME, MYSQL_PASSWORD);
                 this.conexaoDoBancoMySQL = new JdbcTemplate(dataSourceMySQL);
 
-                BasicDataSource dataSourceSQLServer = createDataSource(SQL_SERVER_URL, SQL_SERVER_USERNAME, SQL_SERVER_PASSWORD);
+                DataSource dataSourceSQLServer = createDataSource(SQL_SERVER_URL, SQL_SERVER_USERNAME, SQL_SERVER_PASSWORD);
                 this.conexaoDoBancoSQLServer = new JdbcTemplate(dataSourceSQLServer);
 
                 App.log("Conexões com o banco de dados estabelecidas com sucesso.");
@@ -37,12 +37,18 @@ public class Conexao {
         }
     }
 
-    private BasicDataSource createDataSource(String url, String username, String password) {
+    private DataSource createDataSource(String url, String username, String password) {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver"); // Assuming MySQL driver for both connections
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver"); // Driver MySQL
+
+        // Configurações específicas do SQL Server
+        dataSource.addConnectionProperty("trustServerCertificate", "true");
+        dataSource.setDriverClassLoader(getClass().getClassLoader());
+        dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); // Driver SQL Server
+
         return dataSource;
     }
 
@@ -61,5 +67,4 @@ public class Conexao {
     public void logError(String errorMessage, Exception exception) {
         App.logError(errorMessage, exception);
     }
-
 }

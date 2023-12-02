@@ -1,4 +1,5 @@
 package br.com.sptech.modelo.banco.jdbc;
+import br.com.sptech.modelo.banco.jdbc.conexao.Conexao;
 import br.com.sptech.modelo.banco.jdbc.dao.*;
 import br.com.sptech.modelo.banco.jdbc.modelo.*;
 import br.com.sptech.modelo.banco.jdbc.servico.Maquina;
@@ -12,6 +13,7 @@ import br.com.sptech.modelo.banco.jdbc.validacoes.ValidacoesUsuario;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.processos.Processo;
 import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.*;
 import java.util.concurrent.Executors;
@@ -91,6 +93,7 @@ public class App {
         Scanner leitor = new Scanner(System.in);
         Scanner leitorTexto = new Scanner(System.in);
         Boolean logado = false;
+        ModelUsuario usuario = new ModelUsuario();
 
         ValidacoesUsuario validacoesUsuario = new ValidacoesUsuario();
 
@@ -186,15 +189,19 @@ public class App {
                         try {
                             if (usuarioDao.isTokenValido(matricula)) {
                                 if (usuarioDao.buscarEmpresaPorNome(empresa) != null) {
+                                    Conexao con = new Conexao();
+                                    JdbcTemplate conMySQL = con.getConexaoDoBancoMySQL();
+                                    JdbcTemplate conSql = con.getConexaoDoBancoSQLServer();
+
                                     Integer fkEmpresa = usuarioDao.buscarEmpresaPorNome(empresa);
 
-                                    novoFunc.setNome(nome);
-                                    novoFunc.setEmail(email);
-                                    novoFunc.setSenha(senha);
-                                    novoFunc.setArea(area);
-                                    novoFunc.setCargo(cargo);
-                                    novoFunc.setFkEmpresa(fkEmpresa);
-                                    novoFunc.setFkTipoUsuario(3);
+                                    novoUsuario.setNome(nome);
+                                    novoUsuario.setEmail(email);
+                                    novoUsuario.setSenha(senha);
+                                    novoUsuario.setArea(area);
+                                    novoUsuario.setCargo(cargo);
+                                    novoUsuario.setFkEmpresa(fkEmpresa);
+                                    novoUsuario.setFkTipoUsuario(3);
                                     logUserName = nome;
 
                                     MaquinaDao maquinaDao = new MaquinaDao();
@@ -203,9 +210,9 @@ public class App {
                                     novaMaquina.setSo(so);
                                     novaMaquina.setModelo(modelo);
 
-                                    funcionarioDao.salvarUsuario(novoFunc);
-                                    maquinaDao.salvarMaquina(novaMaquina, funcionarioDao.buscarIdUsuario(novoFunc), funcionarioDao.buscarIdToken(matricula));
-                                    maquina01.buscarIdMaquina(funcionarioDao.buscarIdUsuario(novoFunc));
+                                    usuarioDao.salvarUsuario(novoUsuario);
+                                    maquinaDao.salvarMaquina(novaMaquina, usuarioDao.buscarIdUsuario(novoUsuario), usuarioDao.buscarIdToken(matricula), conMySQL, conSql);
+                                    maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(novoUsuario));
 
                                     logado = true;
                                     log("Cadastro bem-sucedido para o usuário " + nome);
@@ -236,8 +243,7 @@ public class App {
 
             do {
                 try {
-                    ModelUsuario usuario = new ModelUsuario();
-                    UsuarioDao usuarioDao1 = new UsuarioDao();
+
                     System.out.println("Digite seu email:");
                     validarEmail = leitorTexto.nextLine();
                     App.setLogUserName(validarEmail);
@@ -246,13 +252,16 @@ public class App {
 
                     usuario.setEmail(validarEmail);
                     usuario.setSenha(validarSenha);
+                    System.out.println(usuarioDao.isUsuarioExistente(usuario));
                     if (usuarioDao.isUsuarioExistente(usuario)) {
                         todasValidacoesLogin = true;
-                        System.out.println("Id usuario: " + usuarioDao.buscarIdUsuario(usuario));
 
-                        maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(usuario));
+                        System.out.println("Id usuario: " + usuarioDao.buscarIdUsuario(usuario));
+                        System.out.println(usuarioDao.buscarFkTipoUsuario(usuario));
+
+                        System.out.println("ou");
                         logado = true;
-                        if (usuarioDao1.buscarFkTipoUsuario(usuario).equals(2)) {
+                        if (usuarioDao.buscarFkTipoUsuario(usuario).equals(2)) {
                             Scanner scanneremail = new Scanner(System.in);
                             Scanner scanner01 = new Scanner(System.in);
                             ;
@@ -262,9 +271,9 @@ public class App {
                                    );
                             Integer opcao2 = scanner01.nextInt();
                             if (opcao2 == 0) {
-                                System.out.println("Digite o email do funcionario que voce quer ver");
+                                System.out.println("Digite o email do funcionario que voce quer ver:");
                                 String email = scanneremail.nextLine();
-                                System.out.println("Digite o tempo dos ultimos dados adicionar");
+                                System.out.println("Deseja ver os dados coletados de quantas horas atras:");
                                 Integer tempo = scanner01.nextInt();
 
                                 System.out.println(admDao.buscarFuncEmail(email, tempo));
@@ -272,9 +281,10 @@ public class App {
                                 System.out.println(admDao.buscarListFunc(usuario));
                             }
                         }
-//
-
                         log("Login bem-sucedido para o usuário: " + usuario.getEmail());
+                        if (usuarioDao.isUsuarioExistente(usuario)){
+                            maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(usuario));
+                        }
 
                     } else {
                         System.out.println("Email ou senha incorretas. Tente novamente!");
@@ -298,116 +308,122 @@ public class App {
         leitor.close();
         leitorTexto.close();
 
+
+
+
         if (logado.equals(true)) {
-            // Obtenha os dados da API Looca
-            Memoria memoria = looca.getMemoria();
+            if (usuarioDao.buscarFkTipoUsuario(novoUsuario).equals(3) || usuarioDao.buscarFkTipoUsuario(usuario).equals(3)) {
+                // Obtenha os dados da API Looca
+                Memoria memoria = looca.getMemoria();
 
-            Processador cpu = looca.getProcessador();
+                Processador cpu = looca.getProcessador();
 
-            DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
-            List<Disco> discos = grupoDeDiscos.getDiscos();
+                DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
+                List<Disco> discos = grupoDeDiscos.getDiscos();
 
-            JanelaGrupo grupodDeJanelas = looca.getGrupoDeJanelas();
-            List<Janela> janelas = grupodDeJanelas.getJanelas();
+                JanelaGrupo grupodDeJanelas = looca.getGrupoDeJanelas();
+                List<Janela> janelas = grupodDeJanelas.getJanelas();
 
-            ProcessoGrupo grupoDeProcessos = looca.getGrupoDeProcessos();
-            List<Processo> processos = grupoDeProcessos.getProcessos();
+                ProcessoGrupo grupoDeProcessos = looca.getGrupoDeProcessos();
+                List<Processo> processos = grupoDeProcessos.getProcessos();
 
-            ModelMemoria novaCapturaRam = new ModelMemoria();
-            ModelCpu novaCapturaCpu = new ModelCpu();
-            ModelDisco novaCapturaDisco = new ModelDisco();
-            ModelJanela novaCapturaJanela = new ModelJanela();
-            ModelProcesso novaCapturaProcesso = new ModelProcesso();
+                ModelMemoria novaCapturaRam = new ModelMemoria();
+                ModelCpu novaCapturaCpu = new ModelCpu();
+                ModelDisco novaCapturaDisco = new ModelDisco();
+                ModelJanela novaCapturaJanela = new ModelJanela();
+                ModelProcesso novaCapturaProcesso = new ModelProcesso();
 
 
-            // IF para captura fixa, acontece apenas 1 vez.
-            if(!maquina01.isComponenteSalvo(maquina01.getIdMaquina())){
-                novaCapturaRam.setRamTotal(memoria.getTotal());
-                novaCapturaCpu.setNumCPUsFisicas(cpu.getNumeroCpusFisicas());
-                novaCapturaCpu.setNumCPUsLogicas(cpu.getNumeroCpusLogicas());
-
-                for (Disco disco : discos) {
-                    novaCapturaDisco.setTotalDisco(disco.getTamanho());
-                }
-
-                maquina01.capturarDadosFixo(novaCapturaRam, novaCapturaCpu, novaCapturaDisco);
-
-            } else {
-                maquina01.buscarDadosFixosDosComponentes();
-            };
-
-            // Scheduler de 10 segundos para capturas dinâmicas
-            scheduler.scheduleAtFixedRate(() -> {
-                try {
-                    // Crie uma nova instância da sua classe com os dados capturados
-                    novaCapturaRam.setMemoriaUso(memoria.getEmUso());
-                    novaCapturaRam.setDataCaptura(new Date());
-                    novaCapturaRam.setDesligada(false);
-
-                    novaCapturaCpu.setUsoCpu(cpu.getUso());
-                    novaCapturaCpu.setFreq(cpu.getFrequencia());
-                    novaCapturaCpu.setDataCaptura(new Date());
-                    novaCapturaCpu.setDesligada(false);
+                // IF para captura fixa, acontece apenas 1 vez.
+                if (!maquina01.isComponenteSalvo(maquina01.getIdMaquina())) {
+                    novaCapturaRam.setRamTotal(memoria.getTotal());
+                    novaCapturaCpu.setNumCPUsFisicas(cpu.getNumeroCpusFisicas());
+                    novaCapturaCpu.setNumCPUsLogicas(cpu.getNumeroCpusLogicas());
 
                     for (Disco disco : discos) {
-                        novaCapturaDisco.setBytesEscrita(disco.getBytesDeEscritas());
-                        novaCapturaDisco.setDataCaptura(new Date());
-                        novaCapturaDisco.setBytesLeitura(disco.getBytesDeLeitura());
-                        novaCapturaDisco.setEscritas(disco.getEscritas());
-                        novaCapturaDisco.setLeituras(disco.getLeituras());
-                        novaCapturaDisco.setTamanhoFila(disco.getTamanhoAtualDaFila());
-                        novaCapturaDisco.setDesligada(false);
+                        novaCapturaDisco.setTotalDisco(disco.getTamanho());
                     }
 
-                    int tamanho = Math.max(windowsInfo.size(), Math.max(janelas.size(), processos.size()));
+                    maquina01.capturarDadosFixo(novaCapturaRam, novaCapturaCpu, novaCapturaDisco);
 
-                    for (int i = 0; i < tamanho; i++) {
-                        Janela janela = (i < janelas.size()) ? janelas.get(i) : null;
-                        Processo processo = (i < processos.size()) ? processos.get(i) : null;
-                        ActiveWindowDetector.WindowInfo ws = (i < windowsInfo.size()) ? windowsInfo.get(i) : new ActiveWindowDetector.WindowInfo("", 0, false, null);
-                        ActiveWindowDetector activeWindowDetector = new ActiveWindowDetector();
+                } else {
+                    maquina01.buscarDadosFixosDosComponentes();
+                }
+                ;
 
-                        long pidJanela = (janela != null && janela.getPid() != null) ? janela.getPid() : (long) ws.getProcessId();
+                // Scheduler de 10 segundos para capturas dinâmicas
+                scheduler.scheduleAtFixedRate(() -> {
+                    try {
+                        // Crie uma nova instância da sua classe com os dados capturados
+                        novaCapturaRam.setMemoriaUso(memoria.getEmUso());
+                        novaCapturaRam.setDataCaptura(new Date());
+                        novaCapturaRam.setDesligada(false);
 
-                        // Verificar se o PID da janela corresponde ao PID do ws
-                        if (ws != null && ws.getProcessId() != 0 && pidJanela != 0 && pidJanela != ws.getProcessId()) {
-                            System.out.println("Aviso: PID da janela não corresponde ao PID do ws.");
-                        } else {
-                            novaCapturaJanela.setPid(pidJanela);
-                            novaCapturaJanela.setTitulo((janela != null && janela.getTitulo() != null) ? janela.getTitulo() : ((ws != null) ? ws.getWindowName() : null));
-                            novaCapturaJanela.setComando((janela != null && janela.getComando() != null) ? janela.getComando() : "");
+                        novaCapturaCpu.setUsoCpu(cpu.getUso());
+                        novaCapturaCpu.setFreq(cpu.getFrequencia());
+                        novaCapturaCpu.setDataCaptura(new Date());
+                        novaCapturaCpu.setDesligada(false);
+
+                        for (Disco disco : discos) {
+                            novaCapturaDisco.setBytesEscrita(disco.getBytesDeEscritas());
+                            novaCapturaDisco.setDataCaptura(new Date());
+                            novaCapturaDisco.setBytesLeitura(disco.getBytesDeLeitura());
+                            novaCapturaDisco.setEscritas(disco.getEscritas());
+                            novaCapturaDisco.setLeituras(disco.getLeituras());
+                            novaCapturaDisco.setTamanhoFila(disco.getTamanhoAtualDaFila());
+                            novaCapturaDisco.setDesligada(false);
+                        }
+
+                        int tamanho = Math.max(windowsInfo.size(), Math.max(janelas.size(), processos.size()));
+
+                        for (int i = 0; i < tamanho; i++) {
+                            Janela janela = (i < janelas.size()) ? janelas.get(i) : null;
+                            Processo processo = (i < processos.size()) ? processos.get(i) : null;
+                            ActiveWindowDetector.WindowInfo ws = (i < windowsInfo.size()) ? windowsInfo.get(i) : new ActiveWindowDetector.WindowInfo("", 0, false, null);
+                            ActiveWindowDetector activeWindowDetector = new ActiveWindowDetector();
+
+                            long pidJanela = (janela != null && janela.getPid() != null) ? janela.getPid() : (long) ws.getProcessId();
+
+                            // Verificar se o PID da janela corresponde ao PID do ws
+                            if (ws != null && ws.getProcessId() != 0 && pidJanela != 0 && pidJanela != ws.getProcessId()) {
+                                System.out.println("Aviso: PID da janela não corresponde ao PID do ws.");
+                            } else {
+                                novaCapturaJanela.setPid(pidJanela);
+                                novaCapturaJanela.setTitulo((janela != null && janela.getTitulo() != null) ? janela.getTitulo() : ((ws != null) ? ws.getWindowName() : null));
+                                novaCapturaJanela.setComando((janela != null && janela.getComando() != null) ? janela.getComando() : "");
 //                            novaCapturaJanela.setVisivel(activeWindowDetector.isPidInForeground(novaCapturaJanela.getPid()));
-                            novaCapturaJanela.setDataCaptura(new Date());
+                                novaCapturaJanela.setDataCaptura(new Date());
 
-                            novaCapturaProcesso.setPid((processo != null) ? processo.getPid() : null);
-                            novaCapturaProcesso.setUsoCpu((processo != null && processo.getUsoCpu() != null) ? processo.getUsoCpu() : ((ws != null && ws.getPerformanceInfo() != null) ? ws.getPerformanceInfo().getCpuUsage() : 0.0));
-                            novaCapturaProcesso.setUsoMemoria((processo != null && processo.getUsoMemoria() != null) ? processo.getUsoMemoria() : ((ws != null && ws.getPerformanceInfo() != null) ? ws.getPerformanceInfo().getMemoryUsage() : 0.0));
-                            novaCapturaProcesso.setBytesUtilizados((processo != null) ? processo.getBytesUtilizados() : null);
+                                novaCapturaProcesso.setPid((processo != null) ? processo.getPid() : null);
+                                novaCapturaProcesso.setUsoCpu((processo != null && processo.getUsoCpu() != null) ? processo.getUsoCpu() : ((ws != null && ws.getPerformanceInfo() != null) ? ws.getPerformanceInfo().getCpuUsage() : 0.0));
+                                novaCapturaProcesso.setUsoMemoria((processo != null && processo.getUsoMemoria() != null) ? processo.getUsoMemoria() : ((ws != null && ws.getPerformanceInfo() != null) ? ws.getPerformanceInfo().getMemoryUsage() : 0.0));
+                                novaCapturaProcesso.setBytesUtilizados((processo != null) ? processo.getBytesUtilizados() : null);
 
 //                            if (novaCapturaJanela.getPid() != 0 && (novaCapturaJanela.getTitulo() != null || ws.getWindowName() != null)) {
 //                                maquina01.capturarJanelasProcessos(novaCapturaJanela, novaCapturaProcesso);
 //                            }
+                            }
                         }
+
+
+                        maquina01.capturarDadosDinamico(novaCapturaRam, novaCapturaCpu, novaCapturaDisco);
+
+                        // Imprima uma mensagem de sucesso no console
+                        System.out.println("Dados de memória capturados e salvos com sucesso!");
+                        log("Dados de memória capturados e salvos com sucesso" + memoria);
+                    } catch (Exception e) {
+                        // Imprima quaisquer erros no console
+                        e.printStackTrace();
+                        System.err.println("Erro ao capturar e salvar dados de memória.");
+                        logError("Erro ao capturar e salvar dados de memória", e);
                     }
+                }, 0, 10, TimeUnit.SECONDS);
+            }
 
-
-                    maquina01.capturarDadosDinamico(novaCapturaRam, novaCapturaCpu, novaCapturaDisco);
-
-                    // Imprima uma mensagem de sucesso no console
-                    System.out.println("Dados de memória capturados e salvos com sucesso!");
-                    log("Dados de memória capturados e salvos com sucesso" + memoria);
-                } catch (Exception e) {
-                    // Imprima quaisquer erros no console
-                    e.printStackTrace();
-                    System.err.println("Erro ao capturar e salvar dados de memória.");
-                    logError("Erro ao capturar e salvar dados de memória", e);
-                }
-            }, 0, 10, TimeUnit.SECONDS);
+            // Fechando os Scanners pra não derreter a memória (ou a RAM sei lá)
+            leitor.close();
+            leitorTexto.close();
         }
-
-        // Fechando os Scanners pra não derreter a memória (ou a RAM sei lá)
-        leitor.close();
-        leitorTexto.close();
     }
 }
 

@@ -8,22 +8,35 @@ import java.util.List;
 
 public class AdmDao extends UsuarioDao {
 
-    Conexao conexao = new Conexao();
-    JdbcTemplate conexaoMySQL = conexao.getConexaoDoBancoMySQL();
-    JdbcTemplate conexaoSQLServer = conexao.getConexaoDoBancoSQLServer();
-
+    public AdmDao() {
+    }
 
     public List buscarFuncEmail(String email, Integer tempo) {
-        String sql = "SELECT COUNT(*) FROM usuario WHERE email LIKE ?";
-        Integer emailFunc = conexaoMySQL.queryForObject(sql, Integer.class, email);
+        Conexao conexao = new Conexao();
+        JdbcTemplate conSQLServer = conexao.getConexaoDoBancoSQLServer();
+        JdbcTemplate conMySQL = conexao.getConexaoDoBancoMySQL();
+
+        String sql = "SELECT COUNT(*) FROM usuario WHERE email LIKE ?;";
+        Integer emailFunc = conSQLServer.queryForObject(sql, Integer.class, email);
         System.out.println(emailFunc);
 
         if (emailFunc.equals(1)) {
-            List dadosFunc = conexaoMySQL.queryForList("SELECT componente.nome, uso, leituras FROM dados_captura " +
+            List dadosFunc = conSQLServer.queryForList("SELECT componente.nome, uso, leituras FROM dados_captura " +
                     "JOIN componente ON id_componente = fk_componente " +
                     "JOIN maquina ON fk_maquina = id_maquina " +
                     "JOIN usuario ON id_usuario = fk_usuario " +
-                    "WHERE email LIKE ? AND data_captura >= NOW() - INTERVAL ? HOUR;", email, tempo);
+                    "WHERE email LIKE ? AND data_captura >= NOW() - INTERVAL ? hour;", email, tempo);
+
+            for (int i = 0; i < dadosFunc.size(); i++) {
+                System.out.println(dadosFunc.get(i));
+            }
+        } else {
+            // Se a consulta no SQL Server retornar null, execute a consulta no MySQL
+            List dadosFunc = conMySQL.queryForList("SELECT componente.nome, uso, leituras FROM dados_captura " +
+                    "JOIN componente ON id_componente = fk_componente " +
+                    "JOIN maquina ON fk_maquina = id_maquina " +
+                    "JOIN usuario ON id_usuario = fk_usuario " +
+                    "WHERE email LIKE ? AND data_captura >= NOW() - INTERVAL ? hour;", email, tempo);
 
             for (int i = 0; i < dadosFunc.size(); i++) {
                 System.out.println(dadosFunc.get(i));
@@ -32,12 +45,27 @@ public class AdmDao extends UsuarioDao {
         return null;
     }
 
+
     public List buscarListFunc(ModelUsuario modelUsuario) {
-        List listFunc = conexaoMySQL.queryForList("SELECT admin.nome FROM usuario AS admin " +
-                "JOIN token ON admin.id_usuario = token.fk_usuario " +
-                "JOIN maquina ON token.idtoken = maquina.fk_token " +
+        Conexao conexao = new Conexao();
+        JdbcTemplate conSQLServer = conexao.getConexaoDoBancoSQLServer();
+        JdbcTemplate conMySQL = conexao.getConexaoDoBancoMySQL();
+        UsuarioDao modelUsuario1 = new UsuarioDao();
+        List listFunc = conSQLServer.queryForList("SELECT admin.nome FROM usuario AS admin\n" +
+                "JOIN token ON admin.id_usuario = token.fk_usuario\n" +
+                "JOIN maquina ON token.idtoken = maquina.fk_token\n" +
                 "JOIN usuario AS funcionario ON funcionario.id_usuario = maquina.fk_usuario " +
-                "WHERE funcionario.id_usuario = ?;", buscarIdUsuario(modelUsuario, conexaoMySQL));
+                "WHERE funcionario.id_usuario = ?;", modelUsuario1.buscarIdUsuario(modelUsuario));
+
+        if (listFunc.isEmpty()) {
+            // Se a consulta no SQL Server retornar null, execute a consulta no MySQL
+            listFunc = conMySQL.queryForList("SELECT admin.nome FROM usuario AS admin\n" +
+                    "JOIN token ON admin.id_usuario = token.fk_usuario\n" +
+                    "JOIN maquina ON token.idtoken = maquina.fk_token\n" +
+                    "JOIN usuario AS funcionario ON funcionario.id_usuario = maquina.fk_usuario " +
+                    "WHERE funcionario.id_usuario = ?;", modelUsuario1.buscarIdUsuario(modelUsuario));
+        }
+
         System.out.println();
         for (var i = 0; i < listFunc.size(); i++) {
             System.out.println(i);

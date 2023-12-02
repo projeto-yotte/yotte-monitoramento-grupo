@@ -1,6 +1,5 @@
 package br.com.sptech.modelo.banco.jdbc.dao;
 
-import br.com.sptech.modelo.banco.jdbc.conexao.Conexao;
 import br.com.sptech.modelo.banco.jdbc.modelo.ModelJanela;
 import org.springframework.jdbc.core.JdbcTemplate;
 
