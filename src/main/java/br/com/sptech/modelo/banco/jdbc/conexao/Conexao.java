@@ -40,20 +40,6 @@ public class Conexao {
         return conexaoDoBancoSQLServer;
     }
 
-    public void fecharConexao(JdbcTemplate jdbcTemplate) {
-        try {
-            DataSource dataSource = jdbcTemplate.getDataSource();
-            if (dataSource instanceof BasicDataSource) {
-                ((BasicDataSource) dataSource).close();
-                App.log("Conexão fechada com sucesso.");
-            } else {
-                App.logError("Não foi possível fechar a conexão. Tipo de DataSource não suportado.");
-            }
-        } catch (Exception e) {
-            App.logError("Erro ao fechar a conexão.", e);
-        }
-    }
-
     public void log(String message) {
         System.out.println(message);
     }
