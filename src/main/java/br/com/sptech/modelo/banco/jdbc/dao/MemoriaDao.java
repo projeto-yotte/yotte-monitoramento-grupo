@@ -11,19 +11,21 @@ public class MemoriaDao {
     public void salvarCapturaFixa(ModelMemoria novaCapturaRam, Integer idMaquina, JdbcTemplate conexaoMySQL, JdbcTemplate conexaoSQLServer) {
         if (idMaquina != null) {
             try {
-                // Salvar no MySQL
-                conexaoMySQL.update("INSERT INTO info_componente (total) VALUES (?)", novaCapturaRam.getRamTotal());
+                if (conexaoSQLServer == null) {
+                    // Salvar no MySQL
+                    conexaoMySQL.update("INSERT INTO info_componente (total) VALUES (?)", novaCapturaRam.getRamTotal());
 
-                idInfoMySQL = getIdInfoMySQL(conexaoMySQL); // Usando o MySQL para buscar o ID
+                    idInfoMySQL = getIdInfoMySQL(conexaoMySQL); // Usando o MySQL para buscar o ID
+                }else {
+                    // Salvar no SQL Server
+                    conexaoSQLServer.update("INSERT INTO info_componente (total) VALUES (?)", novaCapturaRam.getRamTotal());
 
-                // Salvar no SQL Server
-                conexaoSQLServer.update("INSERT INTO info_componente (total) VALUES (?)", novaCapturaRam.getRamTotal());
+                    // Usando o SQL Server para salvar o componente
+                    conexaoSQLServer.update("INSERT INTO componente (nome, parametro, fk_info, fk_maquina) VALUES (?, ?, ?, ?)", "memoria", "bytes", idInfoMySQL, idMaquina);
 
-                // Usando o SQL Server para salvar o componente
-                conexaoSQLServer.update("INSERT INTO componente (nome, parametro, fk_info, fk_maquina) VALUES (?, ?, ?, ?)", "memoria", "bytes", idInfoMySQL, idMaquina);
-
-                // Usando o SQL Server para salvar o parametro_componente
-                conexaoSQLServer.update("INSERT INTO parametro_componente (valor_minimo, valor_maximo, fk_componente) VALUES (?, ?, ?)", 30, 80, idInfoMySQL);
+                    // Usando o SQL Server para salvar o parametro_componente
+                    conexaoSQLServer.update("INSERT INTO parametro_componente (valor_minimo, valor_maximo, fk_componente) VALUES (?, ?, ?)", 30, 80, idInfoMySQL);
+                }
 
             } catch (Exception e) {
                 // Tratar exceções
@@ -42,21 +44,24 @@ public class MemoriaDao {
     public void salvarCapturaDinamica(ModelMemoria novaCapturaRam, JdbcTemplate conexaoMySQL, JdbcTemplate conexaoSQLServer) {
         if (idInfoMySQL != null) {
             try {
-                // Salvar no MySQL
-                conexaoMySQL.update("INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)",
-                        novaCapturaRam.getMemoriaUso(),
-                        novaCapturaRam.getDataCaptura(),
-                        idInfoMySQL,
-                        novaCapturaRam.getDesligada()
-                );
+                if (conexaoSQLServer == null) {
+                    // Salvar no MySQL
+                    conexaoMySQL.update("INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)",
+                            novaCapturaRam.getMemoriaUso(),
+                            novaCapturaRam.getDataCaptura(),
+                            idInfoMySQL,
+                            novaCapturaRam.getDesligada()
+                    );
+                }else {
 
-                // Salvar no SQL Server
-                conexaoSQLServer.update("INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)",
-                        novaCapturaRam.getMemoriaUso(),
-                        novaCapturaRam.getDataCaptura(),
-                        idInfoMySQL,
-                        novaCapturaRam.getDesligada()
-                );
+                    // Salvar no SQL Server
+                    conexaoSQLServer.update("INSERT INTO dados_captura (uso, data_captura, fk_componente, desligada) VALUES (?, ?, ?, ?)",
+                            novaCapturaRam.getMemoriaUso(),
+                            novaCapturaRam.getDataCaptura(),
+                            idInfoMySQL,
+                            novaCapturaRam.getDesligada()
+                    );
+                }
             } catch (Exception e) {
                 // Tratar exceções
                 e.printStackTrace();
@@ -68,21 +73,24 @@ public class MemoriaDao {
 
     public void buscarDadosFixo(Integer idMaquina, JdbcTemplate conexaoMySQL, JdbcTemplate conexaoSQLServer) {
         try {
-            // Buscar no MySQL
-            String sqlMySQL = "SELECT c.id_componente\n" +
-                    "FROM componente c\n" +
-                    "JOIN info_componente i ON c.fk_info = i.id_info\n" +
-                    "JOIN maquina m ON c.fk_maquina = m.id_maquina\n" +
-                    "WHERE c.nome = ? AND m.id_maquina = ?";
-            idInfoMySQL = conexaoMySQL.queryForObject(sqlMySQL, Integer.class, "memoria", idMaquina);
+            if (conexaoSQLServer == null) {
+                // Buscar no MySQL
+                String sqlMySQL = "SELECT c.id_componente\n" +
+                        "FROM componente c\n" +
+                        "JOIN info_componente i ON c.fk_info = i.id_info\n" +
+                        "JOIN maquina m ON c.fk_maquina = m.id_maquina\n" +
+                        "WHERE c.nome = ? AND m.id_maquina = ?";
+                idInfoMySQL = conexaoMySQL.queryForObject(sqlMySQL, Integer.class, "memoria", idMaquina);
+            }else {
 
-            // Buscar no SQL Server
-            String sqlSQLServer = "SELECT c.id_componente\n" +
-                    "FROM componente c\n" +
-                    "JOIN info_componente i ON c.fk_info = i.id_info\n" +
-                    "JOIN maquina m ON c.fk_maquina = m.id_maquina\n" +
-                    "WHERE c.nome = ? AND m.id_maquina = ?";
-            idInfoSQLServer = conexaoSQLServer.queryForObject(sqlSQLServer, Integer.class, "memoria", idMaquina);
+                // Buscar no SQL Server
+                String sqlSQLServer = "SELECT c.id_componente\n" +
+                        "FROM componente c\n" +
+                        "JOIN info_componente i ON c.fk_info = i.id_info\n" +
+                        "JOIN maquina m ON c.fk_maquina = m.id_maquina\n" +
+                        "WHERE c.nome = ? AND m.id_maquina = ?";
+                idInfoSQLServer = conexaoSQLServer.queryForObject(sqlSQLServer, Integer.class, "memoria", idMaquina);
+            }
         } catch (Exception e) {
             // Tratar exceções
             e.printStackTrace();

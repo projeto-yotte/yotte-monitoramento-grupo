@@ -13,13 +13,15 @@ public class MaquinaDao {
 
     public void salvarMaquina(ModelMaquina novaMaquina, Integer fkUsuario, Integer fkToken, JdbcTemplate conexaoMySQL, JdbcTemplate conexaoSQLServer) {
         try {
-            // Salvar no MySQL
-            conexaoMySQL.update("INSERT INTO maquina (ip, so, modelo, fk_usuario, fk_token) VALUES (?, ?, ?, ?, ?)",
-                    novaMaquina.getIp(), novaMaquina.getSo(), novaMaquina.getModelo(), fkUsuario, fkToken);
-
-            // Salvar no SQL Server
-            conexaoSQLServer.update("INSERT INTO maquina (ip, so, modelo, fk_usuario, fk_token) VALUES (?, ?, ?, ?, ?)",
-                    novaMaquina.getIp(), novaMaquina.getSo(), novaMaquina.getModelo(), fkUsuario, fkToken);
+            if (conexaoSQLServer == null) {
+                // Salvar no MySQL
+                conexaoMySQL.update("INSERT INTO maquina (ip, so, modelo, fk_usuario, fk_token) VALUES (?, ?, ?, ?, ?)",
+                        novaMaquina.getIp(), novaMaquina.getSo(), novaMaquina.getModelo(), fkUsuario, fkToken);
+            }else {
+                // Salvar no SQL Server
+                conexaoSQLServer.update("INSERT INTO maquina (ip, so, modelo, fk_usuario, fk_token) VALUES (?, ?, ?, ?, ?)",
+                        novaMaquina.getIp(), novaMaquina.getSo(), novaMaquina.getModelo(), fkUsuario, fkToken);
+            }
 
             idMaquinaMySQL = getIdMaquinaMySQL(fkUsuario, conexaoMySQL); // Usando o MySQL para buscar o ID
             idMaquinaSQLServer = getIdMaquinaSQLServer(fkUsuario, conexaoSQLServer); // Usando o SQL Server para buscar o ID

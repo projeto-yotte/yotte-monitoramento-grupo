@@ -25,9 +25,9 @@ public class Maquina {
     }
 
     public void buscarDadosFixosDosComponentes() {
-        memoriaDao.buscarDadosFixo(idMaquina);
+        memoriaDao.buscarDadosFixo(idMaquina, null, null);
         cpuDao.buscarDadosFixo(idMaquina);
-        discoDao.buscarDadosFixo(idMaquina);
+        discoDao.buscarDadosFixo(idMaquina, null, null);
     }
 
     public void buscarIdMaquina(Integer idUsuario) {

@@ -8,23 +8,26 @@ public class ProcessoDao {
 
     public void atualizarProcesso(ModelProcesso novaCapturaProcesso, Integer fkMaquina, JdbcTemplate conexaoMySQL, JdbcTemplate conexaoSQLServer) {
         try {
-            // Atualizar no MySQL
-            conexaoMySQL.update("INSERT INTO processo (pid, uso_cpu, uso_memoria, bytes_utilizados, fk_maquina) VALUES (?, ?, ?, ?, ?)",
-                    novaCapturaProcesso.getPid(),
-                    novaCapturaProcesso.getUsoCpu(),
-                    novaCapturaProcesso.getUsoMemoria(),
-                    novaCapturaProcesso.getBytesUtilizados(),
-                    fkMaquina
-            );
+            if (conexaoSQLServer == null) {
+                // Atualizar no MySQL
+                conexaoMySQL.update("INSERT INTO processo (pid, uso_cpu, uso_memoria, bytes_utilizados, fk_maquina) VALUES (?, ?, ?, ?, ?)",
+                        novaCapturaProcesso.getPid(),
+                        novaCapturaProcesso.getUsoCpu(),
+                        novaCapturaProcesso.getUsoMemoria(),
+                        novaCapturaProcesso.getBytesUtilizados(),
+                        fkMaquina
+                );
+            }else {
 
-            // Atualizar no SQL Server
-            conexaoSQLServer.update("INSERT INTO processo (pid, uso_cpu, uso_memoria, bytes_utilizados, fk_maquina) VALUES (?, ?, ?, ?, ?)",
-                    novaCapturaProcesso.getPid(),
-                    novaCapturaProcesso.getUsoCpu(),
-                    novaCapturaProcesso.getUsoMemoria(),
-                    novaCapturaProcesso.getBytesUtilizados(),
-                    fkMaquina
-            );
+                // Atualizar no SQL Server
+                conexaoSQLServer.update("INSERT INTO processo (pid, uso_cpu, uso_memoria, bytes_utilizados, fk_maquina) VALUES (?, ?, ?, ?, ?)",
+                        novaCapturaProcesso.getPid(),
+                        novaCapturaProcesso.getUsoCpu(),
+                        novaCapturaProcesso.getUsoMemoria(),
+                        novaCapturaProcesso.getBytesUtilizados(),
+                        fkMaquina
+                );
+            }
         } catch (Exception e) {
             // Tratar exceções
             e.printStackTrace();
@@ -33,11 +36,14 @@ public class ProcessoDao {
 
     public void excluirProcesso(Integer idProcesso, JdbcTemplate conexaoMySQL, JdbcTemplate conexaoSQLServer) {
         try {
-            // Excluir do MySQL
-            conexaoMySQL.update("DELETE FROM processo WHERE idProcesso = ?", idProcesso);
+            if (conexaoSQLServer == null) {
+                // Excluir do MySQL
+                conexaoMySQL.update("DELETE FROM processo WHERE idProcesso = ?", idProcesso);
+            }else {
 
-            // Excluir do SQL Server
-            conexaoSQLServer.update("DELETE FROM processo WHERE idProcesso = ?", idProcesso);
+                // Excluir do SQL Server
+                conexaoSQLServer.update("DELETE FROM processo WHERE idProcesso = ?", idProcesso);
+            }
 
             System.out.println("Processo excluído com sucesso!");
         } catch (Exception e) {

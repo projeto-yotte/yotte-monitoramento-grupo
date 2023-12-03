@@ -4,6 +4,7 @@ import br.com.sptech.modelo.banco.jdbc.conexao.Conexao;
 import br.com.sptech.modelo.banco.jdbc.modelo.ModelUsuario;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdmDao extends UsuarioDao {
@@ -51,19 +52,22 @@ public class AdmDao extends UsuarioDao {
         JdbcTemplate conSQLServer = conexao.getConexaoDoBancoSQLServer();
         JdbcTemplate conMySQL = conexao.getConexaoDoBancoMySQL();
         UsuarioDao modelUsuario1 = new UsuarioDao();
-        List listFunc = conSQLServer.queryForList("SELECT admin.nome FROM usuario AS admin\n" +
-                "JOIN token ON admin.id_usuario = token.fk_usuario\n" +
-                "JOIN maquina ON token.idtoken = maquina.fk_token\n" +
-                "JOIN usuario AS funcionario ON funcionario.id_usuario = maquina.fk_usuario " +
-                "WHERE funcionario.id_usuario = ?;", modelUsuario1.buscarIdUsuario(modelUsuario));
-
-        if (listFunc.isEmpty()) {
-            // Se a consulta no SQL Server retornar null, execute a consulta no MySQL
-            listFunc = conMySQL.queryForList("SELECT admin.nome FROM usuario AS admin\n" +
+        List listFunc = new ArrayList<>();
+        if (conSQLServer == null) {
+             listFunc = conSQLServer.queryForList("SELECT admin.nome FROM usuario AS admin\n" +
                     "JOIN token ON admin.id_usuario = token.fk_usuario\n" +
                     "JOIN maquina ON token.idtoken = maquina.fk_token\n" +
                     "JOIN usuario AS funcionario ON funcionario.id_usuario = maquina.fk_usuario " +
                     "WHERE funcionario.id_usuario = ?;", modelUsuario1.buscarIdUsuario(modelUsuario));
+        }else {
+            if (listFunc.isEmpty()) {
+                // Se a consulta no SQL Server retornar null, execute a consulta no MySQL
+                listFunc = conMySQL.queryForList("SELECT admin.nome FROM usuario AS admin\n" +
+                        "JOIN token ON admin.id_usuario = token.fk_usuario\n" +
+                        "JOIN maquina ON token.idtoken = maquina.fk_token\n" +
+                        "JOIN usuario AS funcionario ON funcionario.id_usuario = maquina.fk_usuario " +
+                        "WHERE funcionario.id_usuario = ?;", modelUsuario1.buscarIdUsuario(modelUsuario));
+            }
         }
 
         System.out.println();
