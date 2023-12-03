@@ -18,7 +18,7 @@ public class UsuarioDao {
 
         con.update("INSERT INTO usuario (nome, email, senha, area, cargo, fk_empresa, fk_tipo_usuario) VALUES (?, ?, ?, ?, ?, ?, ?)", novoUsuario.getNome(), novoUsuario.getEmail(), novoUsuario.getSenha(), novoUsuario.getArea(), novoUsuario.getCargo(), novoUsuario.getFkEmpresa(), novoUsuario.getFkTipoUsuario());
 
-        idUsuario = con.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+        idUsuario = con.queryForObject("SELECT SCOPE_IDENTITY()", Integer.class);
         System.out.println(idUsuario);
         return idUsuario;
     }

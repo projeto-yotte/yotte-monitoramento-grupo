@@ -18,7 +18,7 @@ public class MaquinaDao {
         con.update("INSERT INTO maquina (ip, so, modelo, fk_usuario, fk_token) VALUES (?, ?, ?, ?, ?)",
                 novaMaquina.getIp(), novaMaquina.getSo(), novaMaquina.getModelo(), fkUsuario, fkToken);
 
-        idMaquina = con.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+        idMaquina = con.queryForObject("SELECT SCOPE_IDENTITY()" , Integer.class);
     }
 
     public Integer buscarMaquinaPorUsuario(Integer fkUsuario) {

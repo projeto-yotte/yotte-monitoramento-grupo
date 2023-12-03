@@ -14,7 +14,7 @@ public class DiscoDao {
 
             con.update("INSERT INTO info_componente (total) VALUES (?)", novaCapturaDisco.getTotalDisco());
 
-            idInfo = con.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+            idInfo = con.queryForObject("SELECT SCOPE_IDENTITY()", Integer.class);
 
             con.update("INSERT INTO componente (nome, parametro, fk_info, fk_maquina) VALUES (?, ?, ?, ?)",
                     "disco", "bytes", idInfo, fkMaquina);

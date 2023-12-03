@@ -17,7 +17,7 @@ public class CpuDao {
                                                                             novaCapturaCpu.getNumCPUsLogicas());
 
             // Obter o ID inserido na tabela info_componente
-            idInfo = con.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+            idInfo = con.queryForObject("SELECT SCOPE_IDENTITY()", Integer.class);
 
             // Inserir dados na tabela componente
             con.update("INSERT INTO componente (nome, parametro, fk_info, fk_maquina) VALUES (?, ?, ?, ?)",

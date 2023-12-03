@@ -15,7 +15,7 @@ public class MemoriaDao {
 
             con.update("INSERT INTO info_componente (total)  VALUES (?)", novaCapturaRam.getRamTotal());
 
-            idInfo = con.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
+            idInfo = con.queryForObject("SELECT SCOPE_IDENTITY()" , Integer.class);
 
             con.update("INSERT INTO componente (nome, parametro, fk_info, fk_maquina) VALUES (?, ?, ?, ?)", "memoria", "bytes", idInfo, idMaquina);
 
@@ -42,6 +42,7 @@ public class MemoriaDao {
     }
 
     public void buscarDadosFixo(Integer idMaquina) {
+
         Conexao conexao = new Conexao();
         JdbcTemplate con = conexao.getConexaoDoBanco();
 

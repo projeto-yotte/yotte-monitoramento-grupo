@@ -32,7 +32,7 @@ public class App {
     private static String getLogFileName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateStr = sdf.format(new Date());
-        return dateStr + "-" + logUserName + "-.txt";
+        return dateStr + "-" + logUserName + ".txt";
     }
 
     public static void log(String message) {
@@ -249,8 +249,8 @@ public class App {
                     if (usuarioDao.isUsuarioExistente(usuario)) {
                         todasValidacoesLogin = true;
                         System.out.println("Id usuario: " + usuarioDao.buscarIdUsuario(usuario));
-
                         maquina01.buscarIdMaquina(usuarioDao.buscarIdUsuario(usuario));
+                        System.out.println(maquina01.getIdMaquina());
                         logado = true;
                         if (usuarioDao1.buscarFkTipoUsuario(usuario).equals(2)) {
                             Scanner scanneremail = new Scanner(System.in);
