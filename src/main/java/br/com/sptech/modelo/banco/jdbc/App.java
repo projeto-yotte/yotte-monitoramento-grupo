@@ -102,13 +102,13 @@ public class App {
         ActiveWindowDetector windowDetector = new ActiveWindowDetector();
         List<ActiveWindowDetector.WindowInfo> windowsInfo = windowDetector.getActiveWindowInfo();
 
-        for (ActiveWindowDetector.WindowInfo ws : windowsInfo) {
-            if (ws != null) {
-                System.out.println("Window Name: " + ws.getWindowName());
-                System.out.println("PID: " + ws.getProcessId());
-                System.out.println("Is in Foreground: " + ws.isInForeground());
-            }
-        }
+        // for (ActiveWindowDetector.WindowInfo ws : windowsInfo) {
+        //     if (ws != null) {
+        //         System.out.println("Window Name: " + ws.getWindowName());
+        //         System.out.println("PID: " + ws.getProcessId());
+        //         System.out.println("Is in Foreground: " + ws.isInForeground());
+        //     }
+        // }
 
         // ===============================================
 
@@ -391,7 +391,7 @@ public class App {
                                 novaCapturaJanela.setPid(pidJanela);
                                 novaCapturaJanela.setTitulo((janela != null && janela.getTitulo() != null) ? janela.getTitulo() : ((ws != null) ? ws.getWindowName() : null));
                                 novaCapturaJanela.setComando((janela != null && janela.getComando() != null) ? janela.getComando() : "");
-//                            novaCapturaJanela.setVisivel(activeWindowDetector.isPidInForeground(novaCapturaJanela.getPid()));
+                                novaCapturaJanela.setVisivel(activeWindowDetector.isPidInForeground(novaCapturaJanela.getPid()));
                                 novaCapturaJanela.setDataCaptura(new Date());
 
                                 novaCapturaProcesso.setPid((processo != null) ? processo.getPid() : null);
@@ -399,9 +399,9 @@ public class App {
                                 novaCapturaProcesso.setUsoMemoria((processo != null && processo.getUsoMemoria() != null) ? processo.getUsoMemoria() : ((ws != null && ws.getPerformanceInfo() != null) ? ws.getPerformanceInfo().getMemoryUsage() : 0.0));
                                 novaCapturaProcesso.setBytesUtilizados((processo != null) ? processo.getBytesUtilizados() : null);
 
-//                            if (novaCapturaJanela.getPid() != 0 && (novaCapturaJanela.getTitulo() != null || ws.getWindowName() != null)) {
-//                                maquina01.capturarJanelasProcessos(novaCapturaJanela, novaCapturaProcesso);
-//                            }
+                           if (novaCapturaJanela.getPid() != 0 && (novaCapturaJanela.getTitulo() != null || ws.getWindowName() != null)) {
+                               maquina01.capturarJanelasProcessos(novaCapturaJanela, novaCapturaProcesso);
+                           }
                             }
                         }
 
