@@ -4,48 +4,60 @@ import br.com.sptech.modelo.banco.jdbc.App;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.sql.DataSource;
+
 public class Conexao {
 
-    private JdbcTemplate conexaoDoBanco;
+    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/yotte";
+    private static final String MYSQL_USERNAME = "yotte";
+    private static final String MYSQL_PASSWORD = "yotte2023";
+
+    private static final String SQL_SERVER_URL = "jdbc:sqlserver://54.205.98.102;database=yotte;user=sa;password=Projetoyotte2023;";
+    private static final String SQL_SERVER_USERNAME = "sa";
+    private static final String SQL_SERVER_PASSWORD = "Projetoyotte2023";
+
+    private JdbcTemplate conexaoDoBancoMySQL;
+    private JdbcTemplate conexaoDoBancoSQLServer;
     private Boolean conexaoEstabelecida = false;
 
     public Conexao() {
         try {
             if (!conexaoEstabelecida) {
-                BasicDataSource dataSource = new BasicDataSource();
-                // Configurações para o MySQL
+                DataSource dataSourceMySQL = createDataSource(MYSQL_URL, MYSQL_USERNAME, MYSQL_PASSWORD);
+                this.conexaoDoBancoMySQL = new JdbcTemplate(dataSourceMySQL);
 
-//                dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-//                dataSource.setUrl("jdbc:mysql://localhost:3306/yotte");
-//                dataSource.setUsername("root");
-//                dataSource.setPassword("58214213");
+                DataSource dataSourceSQLServer = createDataSource(SQL_SERVER_URL, SQL_SERVER_USERNAME, SQL_SERVER_PASSWORD);
+                this.conexaoDoBancoSQLServer = new JdbcTemplate(dataSourceSQLServer);
 
-
-                dataSource.setUrl("jdbc:sqlserver://54.205.98.102; database=yotte; user=sa; passaword=Projetoyotte2023; trustServerCertificate=true;");
-                dataSource.setUsername("sa");
-                dataSource.setPassword("Projetoyotte2023");
-
-//                dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-//                dataSource.setUrl("jdbc:mysql://localhost:3306/yotte");
-//                dataSource.setUsername("yotte");
-//                dataSource.setPassword("yotte2023");
-
-                this.conexaoDoBanco = new JdbcTemplate(dataSource);
-
-                App.log("Conexão com o banco de dados estabelecida com sucesso.");
-
-                dataSource.getConnection().close();
-                this.conexaoDoBanco = new JdbcTemplate(dataSource);
-                conexaoEstabelecida = true;  // Marcamos a conexão como estabelecida
-                App.log("Conexão com o banco de dados estabelecida com sucesso.");
+                App.log("Conexões com o banco de dados estabelecidas com sucesso.");
+                conexaoEstabelecida = true;  // Marcamos as conexões como estabelecidas
             }
         } catch (Exception e) {
-            App.logError("Erro ao estabelecer a conexão com o banco de dados.", e);
+            App.logError("Erro ao estabelecer as conexões com o banco de dados.", e);
         }
     }
 
-    public JdbcTemplate getConexaoDoBanco() {
-        return conexaoDoBanco;
+    private DataSource createDataSource(String url, String username, String password) {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver"); // Driver MySQL
+
+        // Configurações específicas do SQL Server
+        dataSource.addConnectionProperty("trustServerCertificate", "true");
+        dataSource.setDriverClassLoader(getClass().getClassLoader());
+        dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); // Driver SQL Server
+
+        return dataSource;
+    }
+
+    public JdbcTemplate getConexaoDoBancoMySQL() {
+        return conexaoDoBancoMySQL;
+    }
+
+    public JdbcTemplate getConexaoDoBancoSQLServer() {
+        return conexaoDoBancoSQLServer;
     }
 
     public void log(String message) {
